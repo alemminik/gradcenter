@@ -10,20 +10,75 @@
 
   &--fill {
     background: $interface-lemon;
+    color: $text-black;
+
+    &::before {
+      display: none;
+      content: url(/img/icons/arrow-left-black.svg);
+    }
+
+    &::after {
+      display: none;
+      content: url(/img/icons/arrow-right-black.svg);
+    }
   }
 
   &--outline {
+    border: 1px solid $interface-lemon;
+    color: $text-lemon;
+    &::before {
+      display: none;
+      content: url(/img/icons/arrow-left-lemon.svg);
+    }
+
+    &::after {
+      display: none;
+      content: url(/img/icons/arrow-right-lemon.svg);
+    }
   }
 
   &--stroke {
+    color: $text-black;
+    border: 1px solid $text-black;
+
+    &::before {
+      display: none;
+      content: url(/img/icons/arrow-left-black.svg);
+    }
+
+    &::after {
+      display: none;
+      content: url(/img/icons/arrow-right-black.svg);
+    }
   }
 
   &--ghost {
+    color: $text-lemon;
+
+    &::before {
+      display: none;
+      content: url(/img/icons/arrow-left-lemon.svg);
+    }
+
+    &::after {
+      display: none;
+      content: url(/img/icons/arrow-right-lemon.svg);
+    }
   }
 
   &--arrow-left {
     &::before {
-      content: "123";
+      display: block;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--arrow-right {
+    &::after {
+      display: block;
+      width: 24px;
+      height: 24px;
     }
   }
 }
