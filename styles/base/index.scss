@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Наследуем шрифты для форм */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Убираем подчеркивание у ссылок по умолчанию */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Делаем изображения отзывчивыми */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Списки без маркеров по умолчанию */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Кнопки без border/background (под кастомизацию) */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* Таблицы без «двойных» границ */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Убираем стандартные стили заголовков */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+// Стили по умолчанию
+
+h1 {
+  @include font(h1);
+}
+
+h2 {
+  @include font(h2);
+}
+
+h3 {
+  @include font(h3);
+}
+
+h4 {
+  @include font(h4);
+}
+
+h5 {
+  @include font(h5);
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}

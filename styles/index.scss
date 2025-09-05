@@ -1,6 +1,5 @@
 @import "./vars/index.scss";
-
-h1 {
-  font-family: Evolventa;
-  color: $text-color;
-}
+@import "./fonts/fonts.scss";
+@import "./fonts/font-tokens.scss";
+@import "./base/index.scss";
+@import "./ui-kit/index.scss";

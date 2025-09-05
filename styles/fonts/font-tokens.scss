@@ -1,0 +1,188 @@
+$typography: (
+  h1: (
+    family: $Inter,
+    weight: 500,
+    size: 52px,
+    letter-spacing: -0.03em,
+    color: #000,
+  ),
+  h2: (
+    family: $Inter,
+    weight: 500,
+    size: 42px,
+    line-height: 119%,
+    letter-spacing: -0.03em,
+    color: #000,
+  ),
+  h3: (
+    family: $Inter,
+    weight: 500,
+    size: 28px,
+    line-height: 136%,
+    color: #000,
+  ),
+  h4: (
+    family: $Inter,
+    weight: 600,
+    size: 24px,
+    line-height: 108%,
+    color: #000,
+  ),
+  h5: (
+    family: $Inter,
+    weight: 500,
+    size: 20px,
+    line-height: 120%,
+    color: #000,
+  ),
+  sh-l: (
+    family: $Inter,
+    weight: 400,
+    size: 20px,
+    line-height: 160%,
+    color: #000,
+  ),
+  sh-m: (
+    family: $Inter,
+    weight: 300,
+    size: 16px,
+    line-height: 150%,
+    letter-spacing: -0.02em,
+    color: #000,
+  ),
+  sh-m-bold: (
+    family: $Evolventa,
+    weight: 700,
+    size: 16px,
+    line-height: 150%,
+    color: #000,
+  ),
+  sh-s: (
+    family: $Inter,
+    weight: 400,
+    size: 12px,
+    line-height: 167%,
+    letter-spacing: 0.33em,
+    text-transform: uppercase,
+    color: #000,
+  ),
+  text-xl: (
+    family: $Evolventa,
+    weight: 400,
+    size: 28px,
+    line-height: 150%,
+    color: #000,
+  ),
+  text-l: (
+    family: $Inter,
+    weight: 400,
+    size: 24px,
+    line-height: 150%,
+    color: #000,
+  ),
+  text-m: (
+    family: $Inter,
+    weight: 400,
+    size: 16px,
+    line-height: 150%,
+    color: #000,
+  ),
+  text-m-news: (
+    family: $Inter,
+    weight: 400,
+    size: 16px,
+    line-height: 150%,
+    color: #000,
+  ),
+  text-m-evolv: (
+    family: $Evolventa,
+    weight: 400,
+    size: 16px,
+    line-height: 150%,
+    color: #000,
+  ),
+  text-s: (
+    family: $Inter,
+    weight: 300,
+    size: 14px,
+    line-height: 143%,
+    color: #000,
+  ),
+  text-s-evolv: (
+    family: $Evolventa,
+    weight: 300,
+    size: 14px,
+    line-height: 143%,
+    color: #000,
+  ),
+  text-xs: (
+    family: $Inter,
+    weight: 300,
+    size: 12px,
+    line-height: 167%,
+    color: #000,
+  ),
+  text-xs-evolv: (
+    family: $Evolventa,
+    weight: 300,
+    size: 12px,
+    line-height: 167%,
+    color: #000,
+  ),
+  text-xxs: (
+    family: $Inter,
+    weight: 400,
+    size: 10px,
+    line-height: 160%,
+    color: #000,
+  ),
+  menu: (
+    family: $Evolventa,
+    weight: 400,
+    size: 14px,
+    line-height: 129%,
+    letter-spacing: 0.04em,
+    text-transform: uppercase,
+    color: #000,
+  ),
+  menu-footer: (
+    family: $Evolventa,
+    weight: 700,
+    size: 12px,
+    line-height: 150%,
+    letter-spacing: 0.04em,
+    text-transform: uppercase,
+    color: #000,
+  ),
+  breadcrumbs: (
+    family: $Inter,
+    weight: 500,
+    size: 10px,
+    line-height: 120%,
+    color: #000,
+  ),
+);
+
+@mixin font($name) {
+  $f: map-get($typography, $name);
+
+  font-family: map-get($f, family), sans-serif;
+  font-weight: map-get($f, weight);
+  font-size: map-get($f, size);
+
+  @if map-has-key($f, line-height) {
+    line-height: map-get($f, line-height);
+  }
+
+  @if map-has-key($f, letter-spacing) {
+    letter-spacing: map-get($f, letter-spacing);
+  }
+
+  @if map-has-key($f, color) {
+    color: map-get($f, color);
+  }
+
+  @if map-has-key($f, text-transform) {
+    text-transform: map-get($f, text-transform);
+  }
+}
