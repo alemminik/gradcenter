@@ -1,3 +1,6 @@
+@use "sass:map";
+@use "../vars/index.scss" as *;
+
 $typography: (
   h1: (
     family: $Inter,
@@ -164,25 +167,25 @@ $typography: (
 );
 
 @mixin font($name) {
-  $f: map-get($typography, $name);
+  $f: map.get($typography, $name);
 
-  font-family: map-get($f, family), sans-serif;
-  font-weight: map-get($f, weight);
-  font-size: map-get($f, size);
+  font-family: map.get($f, family), sans-serif;
+  font-weight: map.get($f, weight);
+  font-size: map.get($f, size);
 
-  @if map-has-key($f, line-height) {
-    line-height: map-get($f, line-height);
+  @if map.has-key($f, line-height) {
+    line-height: map.get($f, line-height);
   }
 
-  @if map-has-key($f, letter-spacing) {
-    letter-spacing: map-get($f, letter-spacing);
+  @if map.has-key($f, letter-spacing) {
+    letter-spacing: map.get($f, letter-spacing);
   }
 
-  @if map-has-key($f, color) {
-    color: map-get($f, color);
+  @if map.has-key($f, color) {
+    color: map.get($f, color);
   }
 
-  @if map-has-key($f, text-transform) {
-    text-transform: map-get($f, text-transform);
+  @if map.has-key($f, text-transform) {
+    text-transform: map.get($f, text-transform);
   }
 }
