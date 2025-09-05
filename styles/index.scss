@@ -5,23 +5,26 @@
 @use "./ui-kit/index.scss" as *;
 
 .container {
-  max-width: 1284px; // ширина + 40px
+  max-width: calc(1244px + 20px * 2); // ширина + 40px
   margin: 0 auto;
   padding: 0 20px;
   height: 100%;
 }
-.header {
-  position: relative;
-  background-image: url("../img/decor/hero-bg.webp");
+
+.header-wrapper {
   background-position: right top;
   background-repeat: no-repeat;
   background-color: $interface-black;
   background-size: auto;
-  min-height: 816px;
+}
+
+.header {
+  position: relative;
+  z-index: 20;
+  min-height: 98px;
 }
 
 .header__nav {
-  position: relative;
   height: 96px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.27);
   background: radial-gradient(
@@ -30,7 +33,20 @@
     rgba(13, 15, 27, 0) 100%
   );
   backdrop-filter: blur(21px);
-  z-index: 990;
+  z-index: 20;
+}
+
+.hero .container {
+  position: relative;
+  overflow: visible;
+}
+
+.hero__img-wrapper {
+  position: absolute;
+  top: -192px;
+  right: -117px;
+  z-index: 0;
+  mask-image: linear-gradient(to right, black 95%, transparent 100%);
 }
 
 .hero__glow-circle {
@@ -48,21 +64,30 @@
   &--right,
   &--second-right {
     right: 0;
+    top: 0
   }
 }
 
+.hero .container {
+  min-height: 718px;
+  padding: 140px 0 271px;
+}
+
 .hero__title {
+  position: relative;
+  z-index: 1;
   color: $text-white;
   & span {
     color: $text-lemon;
   }
-  margin: 140px 0 0;
-  max-width: 920px;
+  margin: 0;
 }
 
 .hero__subtitle {
+  position: relative;
+  z-index: 1;
   @include font(sh-m);
   color: $text-white;
   margin: 32px 0 0;
-  max-width: 700px;
+  max-width: 716px;
 }
