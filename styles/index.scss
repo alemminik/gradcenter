@@ -3,3 +3,65 @@
 @import "./fonts/font-tokens.scss";
 @import "./base/index.scss";
 @import "./ui-kit/index.scss";
+
+.container {
+  max-width: 1284px; // ширина + 40px
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+}
+.header {
+  position: relative;
+  background-image: url("../img/decor/hero-bg.webp");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-color: $interface-black;
+  background-size: auto;
+  min-height: 816px;
+}
+
+.header__nav {
+  position: relative;
+  height: 96px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.27);
+  background: radial-gradient(
+    233.7% 138.69% at 0.9% 2.98%,
+    rgba(13, 15, 27, 0.4) 33.55%,
+    rgba(13, 15, 27, 0) 100%
+  );
+  backdrop-filter: blur(21px);
+  z-index: 990;
+}
+
+.hero__glow-circle {
+  position: absolute;
+  width: 609px;
+  height: 609px;
+  background: lightgray 50% / cover no-repeat;
+  mix-blend-mode: overlay;
+  filter: blur(37.05763626098633px);
+  border-radius: 50%;
+  &--left {
+    top: 0;
+    left: 0;
+  }
+  &--right, &--second-right {
+    right: 0;
+  }
+}
+
+.hero__title {
+  color: $text-white;
+  & span {
+    color: $text-lemon;
+  }
+  margin: 140px 0 0;
+  max-width: 920px;
+}
+
+.hero__subtitle {
+  @include font(sh-m);
+  color: $text-white;
+  margin: 32px 0 0;
+  max-width: 700px;
+}
