@@ -90,3 +90,7 @@ button {
   border: none;
   cursor: pointer;
 }
+
+p {
+  @include font(text-m);
+}

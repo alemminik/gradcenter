@@ -20,4 +20,10 @@
 
   &--ghost {
   }
+
+  &--arrow-left {
+    &::before {
+      content: "123";
+    }
+  }
 }
