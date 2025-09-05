@@ -1,8 +1,8 @@
-@import "./vars/index.scss";
-@import "./fonts/fonts.scss";
-@import "./fonts/font-tokens.scss";
-@import "./base/index.scss";
-@import "./ui-kit/index.scss";
+@use "./vars/index.scss" as *;
+@use "./fonts/fonts.scss" as *;
+@use "./fonts/font-tokens.scss" as *;
+@use "./base/index.scss" as *;
+@use "./ui-kit/index.scss" as *;
 
 .container {
   max-width: 1284px; // ширина + 40px
@@ -45,7 +45,8 @@
     top: 0;
     left: 0;
   }
-  &--right, &--second-right {
+  &--right,
+  &--second-right {
     right: 0;
   }
 }

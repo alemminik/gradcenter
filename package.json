@@ -1,0 +1,27 @@
+{
+  "name": "gradcenter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "npx gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SIDs1de/gradcenter.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SIDs1de/gradcenter/issues"
+  },
+  "homepage": "https://github.com/SIDs1de/gradcenter#readme",
+  "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "gulp": "^5.0.1",
+    "gulp-sass": "^6.0.1",
+    "sass": "^1.92.0"
+  }
+}
