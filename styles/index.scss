@@ -128,9 +128,11 @@ $container-width: 1244px;
   background-repeat: no-repeat;
   background-size: cover;
 
-  .container {
+  &__inner {
+    display: flex;
+    padding: 80px 0;
+    gap: 191px;
     position: relative;
-    flex: 1;
 
     &:after {
       content: "";
@@ -146,12 +148,6 @@ $container-width: 1244px;
       mix-blend-mode: overlay;
       filter: blur(37px);
     }
-  }
-
-  &__inner {
-    display: flex;
-    padding: 80px 0;
-    gap: 191px;
   }
 
   &__content {
