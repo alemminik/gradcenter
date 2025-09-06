@@ -197,3 +197,90 @@ $container-width: 1244px;
     }
   }
 }
+
+.licenses {
+  border-radius: 52px 52px 0 0;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__text {
+    max-width: 925px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #cecfd1;
+  }
+
+  &__pre-title {
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-black;
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__content {
+    padding: 32px 0;
+    border-bottom: 1px solid #cecfd1;
+  }
+
+  &__heading {
+    @include font(h2);
+    color: $text-black;
+    margin: 0;
+  }
+
+  &__desc {
+    @include font(sh-m);
+    margin: 0;
+    margin-top: 16px;
+    max-width: 821px;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+    user-select: none;
+  }
+}
+
+.solve {
+  padding: 80px 0;
+
+  &__tags {
+    height: 24px; // потом убрать
+    width: 341px;
+  }
+
+  &__inner {
+    border-radius: 40px;
+    background-color: $interface-black;
+    padding: 80px;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-white;
+    margin: 0;
+    margin-top: 24px;
+  }
+
+  &__subtitle {
+    @include font(sh-m);
+    color: $text-white;
+    margin: 0;
+    margin-top: 16px;
+    max-width: 530px;
+  }
+
+  &__btn {
+    margin-top: 64px;
+  }
+}
