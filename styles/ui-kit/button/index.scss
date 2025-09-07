@@ -29,6 +29,7 @@
   &--outline {
     border: 1px solid $interface-lemon;
     color: $text-lemon;
+
     &::before {
       display: none;
       content: url(/img/icons/arrow-left-lemon.svg);
