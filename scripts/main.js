@@ -97,9 +97,35 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const photosStackLogic = () => {
+    const photosWrapper = document.querySelectorAll(".photos-stack__img-wrapper");
+
+    if (!photosWrapper.length) return;
+
+    photosWrapper.forEach((photoWrapper, index) => {
+      const zIndex = index + 1;
+      let enterTimeout;
+      let leaveTimeout;
+
+      photoWrapper.addEventListener("mouseenter", () => {
+        clearTimeout(leaveTimeout);
+        enterTimeout = setTimeout(() => {
+          photoWrapper.style.zIndex = 10;
+        }, 250);
+      });
+      photoWrapper.addEventListener("mouseleave", () => {
+        clearTimeout(enterTimeout);
+        leaveTimeout = setTimeout(() => {
+          photoWrapper.style.zIndex = zIndex;
+        }, 150);
+      });
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
+    photosStackLogic();
   };
 
   main();
