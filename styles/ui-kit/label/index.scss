@@ -1,0 +1,12 @@
+@use "../../vars/index.scss" as *;
+@use "../../fonts/font-tokens.scss" as *;
+
+.ui-label {
+  @include font(text-m-evolv);
+  color: $text-white;
+
+  background-color: rgba($interface-white, 0.2);
+  border-radius: 8px;
+  padding: 8px 16px;
+  height: 40px;
+}
