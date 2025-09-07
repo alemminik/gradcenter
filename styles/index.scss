@@ -535,3 +535,113 @@ $container-width: 1244px;
     margin-top: 64px;
   }
 }
+
+.contact {
+  border-radius: 52px 52px 0 0;
+  background: $interface-white;
+
+  &__inner {
+    padding: 80px 0;
+    border-bottom: $interface-grey-stroke solid 1px;
+  }
+
+  &__pre-title {
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-black;
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__content {
+    display: flex;
+    margin-top: 64px;
+    gap: 24px;
+  }
+
+  &__item {
+    width: 400px; // не понятно будут ли расширятся контакты, если да, то надо менять justify-content
+  }
+}
+
+.card {
+  &__label {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__pre-title {
+    @include font(sh-m-bold);
+    color: $text-black;
+    margin: 0;
+  }
+
+  &__title {
+    @include font(text-xl);
+    color: $text-black;
+    margin: 0;
+    margin-top: 8px;
+  }
+}
+
+.address {
+  background: $interface-white;
+
+  &__inner {
+    padding: 80px 0;
+  }
+
+  &__pre-title {
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-black;
+    margin: 0;
+    margin-top: 16px;
+  }
+
+  &__content {
+    display: flex;
+    margin-top: 64px;
+    gap: 25px;
+  }
+
+  &__item {
+    max-width: 400px;
+  }
+
+  &__map {
+    filter: grayscale(100%);
+  }
+}
+
+.block {
+  &__pre-title {
+    @include font(sh-m-bold);
+    color: $text-black;
+    margin: 0;
+    min-height: 48px;
+  }
+
+  &__title {
+    @include font(text-l);
+    color: $text-main;
+    margin: 0;
+    margin-top: 12px;
+  }
+}
