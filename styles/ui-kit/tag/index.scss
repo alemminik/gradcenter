@@ -26,12 +26,21 @@
     transition: transform 0.2s;
   }
 
-  &:hover {
+  &:hover,
+  &.hovered {
     background-color: $interface-lemon;
     border-color: $interface-lemon;
+  }
 
+  &:hover {
     &::after {
       transform: rotate(45deg);
+    }
+  }
+
+  &--no-arrow {
+    &::after {
+      display: none;
     }
   }
 

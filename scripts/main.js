@@ -1,3 +1,106 @@
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("Document is ready");
+  const animateNumberLogic = () => {
+    const countersSection = document.getElementById("counters-section");
+    const numberElements = document.querySelectorAll(".counters__number");
+
+    const animateNumber = (el) => {
+      const target = +el.dataset.target;
+      const duration = 1500;
+      let start = null;
+
+      const step = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = timestamp - start;
+
+        const easedProgress = 1 - Math.pow(1 - Math.min(progress / duration, 1), 3);
+        const currentValue = Math.floor(easedProgress * target);
+
+        el.textContent = currentValue;
+
+        if (progress < duration) {
+          window.requestAnimationFrame(step);
+        } else {
+          el.textContent = target;
+        }
+      };
+
+      window.requestAnimationFrame(step);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            numberElements.forEach((numEl) => animateNumber(numEl));
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+      },
+    );
+
+    if (countersSection) {
+      observer.observe(countersSection);
+    }
+  };
+
+  const servicesGridLogic = () => {
+    const servicesGrid = document.querySelector(".ecosystem__grid");
+    const serviceButtons = document.querySelectorAll(".ecosystem__tag");
+
+    if (servicesGrid) {
+      servicesGrid.addEventListener("mousemove", (e) => {
+        const gridRect = servicesGrid.getBoundingClientRect();
+
+        const mouseX = e.clientX - gridRect.left;
+        const mouseY = e.clientY - gridRect.top;
+
+        serviceButtons.forEach((btn) => {
+          const btnRect = btn.getBoundingClientRect();
+
+          const btnCenterX = btnRect.left - gridRect.left + btnRect.width / 2;
+          const btnCenterY = btnRect.top - gridRect.top + btnRect.height / 2;
+
+          const dx = mouseX - btnCenterX;
+          const dy = mouseY - btnCenterY;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+
+          const maxDistance = 220; // can be 150
+
+          if (distance < maxDistance) {
+            const scaleFactor = 1.15;
+            const pushFactor = 0.2;
+
+            const proximity = 1 - distance / maxDistance;
+
+            const scale = 1 + (scaleFactor - 1) * proximity;
+            const translateX = -dx * pushFactor * proximity;
+            const translateY = -dy * pushFactor * proximity;
+
+            btn.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+            btn.classList.add("hovered");
+          } else {
+            btn.style.transform = "translate(0, 0) scale(1)";
+            btn.classList.remove("hovered");
+          }
+        });
+      });
+
+      servicesGrid.addEventListener("mouseleave", () => {
+        serviceButtons.forEach((btn) => {
+          btn.style.transform = "translate(0, 0) scale(1)";
+          btn.classList.remove("hovered");
+        });
+      });
+    }
+  };
+
+  const main = () => {
+    animateNumberLogic();
+    servicesGridLogic();
+  };
+
+  main();
 });
