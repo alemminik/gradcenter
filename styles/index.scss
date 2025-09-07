@@ -266,9 +266,18 @@ $container-width: 1244px;
     justify-content: center;
     align-items: center;
     padding-left: 31px;
-  }
+    position: relative;
 
-  &__tag {
+    &::before {
+      content: url("/img/decor//logo-transparent.png");
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      user-select: none;
+      pointer-events: none;
+    }
   }
 }
 
@@ -276,9 +285,6 @@ $container-width: 1244px;
   &__item {
     display: flex;
     flex-direction: column;
-  }
-
-  &__number-wrapper {
   }
 
   &__number,
