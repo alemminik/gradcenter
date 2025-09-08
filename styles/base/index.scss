@@ -97,3 +97,7 @@ button {
 p {
   @include font(text-m);
 }
+
+address {
+  font-style: normal;
+}
