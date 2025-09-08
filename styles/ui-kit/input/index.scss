@@ -1,0 +1,57 @@
+@use "../../vars/index.scss" as *;
+@use "../../fonts/font-tokens.scss" as *;
+
+.ui-input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  &:has(.ui-input:disabled) {
+    .ui-input {
+      &::placeholder {
+        color: $interface-grey-stroke;
+      }
+    }
+    .ui-input-label,
+    .ui-input-signature {
+      color: $text-grey;
+    }
+  }
+}
+
+.ui-input-label {
+  @include font(text-s-evolv);
+  font-weight: 400;
+  color: $text-black;
+
+  margin-bottom: 8px;
+}
+
+.ui-input {
+  @include font(text-xs);
+  font-weight: 400;
+  color: $interface-dark;
+
+  border-radius: 12px;
+  padding: 14px 16px;
+  height: 48px;
+  background-color: $interface-grey-bg;
+  outline: none;
+  border: none;
+
+  &::placeholder {
+    color: $text-grey;
+  }
+}
+
+textarea.ui-input {
+  resize: none;
+  height: 134px;
+}
+
+.ui-input-signature {
+  @include font(text-xs);
+  color: $text-black;
+
+  margin-top: 4px;
+}
