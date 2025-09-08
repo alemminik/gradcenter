@@ -14,6 +14,12 @@ $container-width: 1244px;
   padding: 0 #{$container-padding};
 }
 
+.page-flex {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
 .hero-wrapper {
   background-color: $interface-black;
   overflow: hidden;
