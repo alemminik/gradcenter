@@ -104,19 +104,17 @@ $container-width: 1244px;
 
   &__title {
     color: $text-white;
-    margin: 0;
     max-width: 1130px;
-    margin-top: 76px;
+    margin: 76px 0 32px;
 
     span {
       color: $text-lemon;
     }
   }
 
-  &__subtitle {
+  &__desc {
     @include font(sh-m);
     color: $text-white;
-    margin: 32px 0 0;
     max-width: 716px;
   }
 }
@@ -178,28 +176,25 @@ $container-width: 1244px;
     @include font(sh-s);
     color: $text-white;
     margin: 0;
+    margin-bottom: 16px;
   }
 
   &__title {
     @include font(h1);
     color: $text-white;
     margin: 0;
-    margin-top: 16px;
+    margin-bottom: 32px;
 
     span {
       color: $text-lemon;
     }
   }
 
-  &__subtitle {
+  &__desc {
     @include font(sh-m);
     color: $text-white;
     margin: 0;
-    margin-top: 32px;
-  }
-
-  &__btn {
-    margin-top: 64px;
+    margin-bottom: 64px;
   }
 
   &__gallery {
@@ -414,25 +409,18 @@ $container-width: 1244px;
     @include font(sh-s);
     color: $text-black;
     margin: 0;
+    margin-bottom: 16px;
   }
 
   &__title {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    margin-top: 16px;
   }
 
   &__block {
     padding: 32px 0;
     border-bottom: 1px solid $interface-grey-stroke;
-  }
-
-  &__img-wrapper {
-    display: flex;
-    gap: 24px;
-    margin-top: 24px;
-    user-select: none;
   }
 }
 
@@ -441,14 +429,21 @@ $container-width: 1244px;
     @include font(h2);
     color: $text-black;
     margin: 0;
+    margin-bottom: 16px;
   }
 
   &__desc {
     @include font(sh-m);
     color: $text-black;
     margin: 0;
-    margin-top: 16px;
+    margin-bottom: 24px;
     max-width: 811px;
+  }
+
+  &__img-wrapper {
+    display: flex;
+    gap: 24px;
+    user-select: none;
   }
 }
 
@@ -491,6 +486,7 @@ $container-width: 1244px;
   &__labels {
     display: flex;
     gap: 16px;
+    margin-bottom: 24px;
   }
 
   &__inner {
@@ -520,18 +516,14 @@ $container-width: 1244px;
     @include font(h1);
     color: $text-white;
     margin: 0;
-    margin-top: 24px;
+    margin-bottom: 16px;
   }
 
-  &__subtitle {
+  &__desc {
     @include font(sh-m);
     color: $text-white;
     margin: 0;
-    margin-top: 16px;
+    margin-bottom: 64px;
     max-width: 530px;
-  }
-
-  &__btn {
-    margin-top: 64px;
   }
 }
