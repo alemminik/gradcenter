@@ -457,6 +457,8 @@ $container-width: 1244px;
   padding: 80px 0;
 
   &__glow-circle {
+    pointer-events: none;
+    user-select: none;
     position: absolute;
     border-radius: 50%;
     width: 754px;
@@ -492,6 +494,8 @@ $container-width: 1244px;
   &__labels {
     display: flex;
     gap: 16px;
+    margin: 0;
+    padding: 0;
     margin-bottom: 24px;
   }
 
