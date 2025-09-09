@@ -122,10 +122,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const serviceOptionsHoverLogic = () => {
+    const serviceItems = document.querySelectorAll(".service__option");
+
+    if (!serviceItems.length) return;
+
+    serviceItems.forEach((item) => {
+      const optionIcon = item.querySelector(".option__icon");
+      if (!optionIcon) return;
+      item.addEventListener("mouseenter", () => {
+        optionIcon.classList.add("hovered");
+      });
+      item.addEventListener("mouseleave", () => {
+        optionIcon.classList.remove("hovered");
+      });
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
     photosStackLogic();
+    serviceOptionsHoverLogic();
   };
 
   main();
