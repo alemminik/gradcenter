@@ -1,0 +1,31 @@
+@use "../../vars/index.scss" as *;
+@use "../../fonts/font-tokens.scss" as *;
+
+.ui-circle-filled-arrow-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  box-shadow: 3px 9px 30px 0 rgba(0, 0, 0, 0.07);
+  background-color: $interface-lemon;
+  border-radius: 24px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+
+  &::before {
+    content: url("../../../img/icons/arrow-up-right.svg");
+    width: 24px;
+    height: 24px;
+    transition: 0.3s;
+  }
+
+  &:hover,
+  &.hovered {
+    &::before {
+      transform: rotate(45deg);
+    }
+  }
+}
