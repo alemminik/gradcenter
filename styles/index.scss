@@ -533,3 +533,86 @@ $container-width: 1244px;
     max-width: 530px;
   }
 }
+
+.contact {
+  border-radius: 52px 52px 0 0;
+  background-color: $interface-white;
+
+  &__inner {
+    padding: 80px 0;
+    border-bottom: 1px solid $interface-grey-stroke;
+
+    &--no-border {
+      border: none;
+    }
+  }
+
+  &__pre-title {
+    display: inline-block;
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 64px;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  &__item {
+    flex: 1 1 398px;
+    max-width: 398px;
+    min-width: 260px;
+  }
+
+  &__map {
+    max-width: 2300px;
+    filter: grayscale(100%);
+    margin: 0 auto;
+  }
+}
+
+.card {
+  &__label {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  &__img {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__pre-title {
+    @include font(sh-m-bold);
+    color: $text-black;
+    margin: 0;
+
+    &--high {
+      min-height: 48px;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__title {
+    @include font(text-xl);
+    color: $text-black;
+    margin: 0;
+
+    &--gray {
+      @include font(text-l);
+      color: $text-main;
+    }
+  }
+}
