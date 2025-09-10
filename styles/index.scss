@@ -820,3 +820,69 @@ $container-width: 1244px;
     color: $text-main;
   }
 }
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 359px;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 64px;
+
+  &__share {
+    max-width: 182px;
+  }
+
+  &__question {
+    max-width: 233px;
+  }
+
+  &__img {
+    height: 24px;
+    width: 24px;
+  }
+
+  &__text {
+    display: inline-block;
+  }
+}
+
+.link {
+  display: flex;
+  gap: 16px;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+}
+
+.content {
+  max-width: 359px;
+
+  &__title {
+    display: inline-block;
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__list {
+    background-color: $interface-lemon;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    border-radius: 12px;
+    margin: 0;
+    padding: 24px 16px;
+    list-style-type: disc;
+  }
+
+  &__item {
+    @include font(text-m);
+    color: $text-main;
+    margin: 0;
+    max-width: 290px;
+    margin-left: 17px;
+  }
+}
