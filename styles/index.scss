@@ -456,6 +456,10 @@ $container-width: 1244px;
 .solve {
   padding: 80px 0;
 
+  &--consultation {
+    max-width: 832px;
+  }
+
   &__glow-circle {
     pointer-events: none;
     user-select: none;
@@ -510,6 +514,10 @@ $container-width: 1244px;
     overflow: hidden;
     background-size: cover;
     padding: 80px;
+
+    &--consultation {
+      padding: 40px;
+    }
 
     &::before {
       content: "";
