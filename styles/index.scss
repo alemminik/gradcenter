@@ -1248,9 +1248,6 @@ $container-width: 1244px;
     }
   }
 
-  &__form {
-  }
-
   &__form-labels {
     display: flex;
     flex-direction: column;
@@ -1273,6 +1270,7 @@ $container-width: 1244px;
 
 .directions {
   padding: 80px 0;
+  background-color: #f5f5f5;
 
   &__pre-title {
     @include font(sh-s);
