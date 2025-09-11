@@ -456,6 +456,10 @@ $container-width: 1244px;
 .solve {
   padding: 80px 0;
 
+  &--consultation {
+    max-width: 832px;
+  }
+
   &__glow-circle {
     pointer-events: none;
     user-select: none;
@@ -510,6 +514,10 @@ $container-width: 1244px;
     overflow: hidden;
     background-size: cover;
     padding: 80px;
+
+    &--consultation {
+      padding: 40px;
+    }
 
     &::before {
       content: "";
@@ -884,6 +892,43 @@ $container-width: 1244px;
     margin: 0;
     max-width: 290px;
     margin-left: 17px;
+  }
+}
+
+.portfolio-link {
+  max-width: 359px;
+
+  &__title {
+    @include font(sh-s);
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__card {
+    display: flex;
+    padding: 8.625px 21.562px;
+    min-height: 130px;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+    border-radius: 16px;
+    background-image: url("../img/decor/portfolio-link-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__text {
+    display: inline-block;
+    @include font(sh-m-bold);
+    color: $text-lemon;
+    margin: 0;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
   }
 }
 
