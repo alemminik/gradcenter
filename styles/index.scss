@@ -984,9 +984,6 @@ $container-width: 1244px;
     padding: 48px 25px 32px;
   }
 
-  &__main {
-  }
-
   &__main-list {
     max-height: 550px;
   }
@@ -996,9 +993,6 @@ $container-width: 1244px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-
-  &__bottom-menu {
   }
 
   &__copyright {
@@ -1054,9 +1048,6 @@ $container-width: 1244px;
     color: #fff;
     margin-bottom: 20px;
   }
-
-  &__sublist {
-  }
 }
 
 .footer-sublist {
@@ -1064,9 +1055,6 @@ $container-width: 1244px;
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  &__item {
-  }
 
   &__link {
     @include font(text-s);
@@ -1152,15 +1140,6 @@ $container-width: 1244px;
     padding: 0;
   }
 
-  &__social {
-  }
-
-  &__social-link {
-  }
-
-  &__social-icon {
-  }
-
   &__btn {
     width: 100%;
     padding: 12px 18px;
@@ -1174,9 +1153,6 @@ $container-width: 1244px;
   align-items: center;
   gap: 40px;
 
-  &__item {
-  }
-
   &__link {
     font-family: $Inter;
     font-weight: 500;
@@ -1184,5 +1160,113 @@ $container-width: 1244px;
     line-height: 162%;
     letter-spacing: 0.02em;
     color: #fff;
+  }
+}
+
+.centers-contacts {
+  &__inner {
+    padding: 80px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__main {
+    padding-top: 97px;
+    flex: 0 1 504px;
+  }
+
+  &__desc {
+    @include font(sh-s);
+    color: $text-black;
+
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    @include font(h1);
+    color: $text-black;
+
+    margin: 0;
+    margin-bottom: 56px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    gap: 12px;
+
+    &:nth-child(2) {
+      .centers-contacts__item-value {
+        @include font(text-xl);
+      }
+    }
+  }
+
+  &__item-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item-key {
+    @include font(sh-m-bold);
+    color: $text-black;
+  }
+
+  &__item-value {
+    @include font(text-m);
+    color: $text-black;
+  }
+
+  &__form-wrapper {
+    flex: 0 1 610px;
+    padding: 97px 106px;
+    position: relative;
+
+    &::before {
+      content: url("../img/decor/form-grid.svg");
+      inset: 0;
+      position: absolute;
+    }
+
+    .ui-input,
+    .ui-button {
+      width: 100%;
+    }
+  }
+
+  &__form {
+  }
+
+  &__form-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__submit-block {
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__form-note {
+    @include font(text-xxs);
+    color: $text-grey;
+    flex: 1 0 208px;
   }
 }
