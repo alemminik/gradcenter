@@ -1221,14 +1221,11 @@ $container-width: 1244px;
   }
 
   &__card {
-    // background-position: center;
-    // background-repeat: no-repeat;
-    // // background-size: ;
-
     &:nth-child(1) {
       grid-column: span 3;
       grid-row: 1;
       background-image: url("../img/decor/direction-bg-1.jpg");
+      
       .direction__content {
         min-height: 196px;
       }
