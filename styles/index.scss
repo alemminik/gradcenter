@@ -1209,6 +1209,7 @@ $container-width: 1244px;
     color: $text-main;
     margin: 0;
     margin-bottom: 48px;
+    max-width: 716px;
   }
 
   &__grid {
@@ -1220,6 +1221,10 @@ $container-width: 1244px;
   }
 
   &__card {
+    // background-position: center;
+    // background-repeat: no-repeat;
+    // // background-size: ;
+
     &:nth-child(1) {
       grid-column: span 3;
       grid-row: 1;
@@ -1317,5 +1322,5 @@ $container-width: 1244px;
     @include font(text-m);
     color: $text-white;
     margin: 0;
-  }  
+  }
 }
