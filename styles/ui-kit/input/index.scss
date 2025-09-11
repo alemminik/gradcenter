@@ -39,7 +39,8 @@
   outline: none;
   border: none;
 
-  &::placeholder {
+  &::placeholder,
+  &.empty {
     color: $text-grey;
   }
 }

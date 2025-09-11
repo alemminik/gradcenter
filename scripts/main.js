@@ -139,11 +139,36 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const formMaskInputLogic = () => {
+    const phoneEl = document.getElementById("phone");
+    if (!phoneEl) return;
+
+    const mask = IMask(phoneEl, {
+      mask: "+{7} (000) 000 00 00",
+      lazy: false,
+      placeholderChar: "_",
+      overwrite: true,
+    });
+
+    phoneEl.classList.add("empty");
+
+    phoneEl.addEventListener("input", () => {
+      const digits = phoneEl.value.replace(/\D/g, "");
+
+      if (digits.length === 1) {
+        phoneEl.classList.add("empty");
+      } else {
+        phoneEl.classList.remove("empty");
+      }
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
     photosStackLogic();
     serviceOptionsHoverLogic();
+    formMaskInputLogic();
   };
 
   main();
