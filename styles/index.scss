@@ -1240,6 +1240,8 @@ $container-width: 1244px;
       content: url("../img/decor/form-grid.svg");
       inset: 0;
       position: absolute;
+      pointer-events: none;
+      user-select: none;
     }
 
     .ui-input,
