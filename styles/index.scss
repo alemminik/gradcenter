@@ -24,6 +24,7 @@ $container-width: 1244px;
   background-color: $interface-black;
   padding-top: 112px;
   position: relative;
+  overflow: hidden;
 
   &::before {
     content: "";
@@ -735,17 +736,24 @@ $container-width: 1244px;
   }
 }
 
-.contact {
+.contacts-wrapper {
+  margin-top: -80px;
+  position: relative;
+  z-index: 1;
+  background-color: #fff;
   border-radius: 52px 52px 0 0;
-  background-color: $interface-white;
+}
+
+.contact {
+  &:last-child {
+    .contact__inner {
+      border: none;
+    }
+  }
 
   &__inner {
     padding: 80px 0;
     border-bottom: 1px solid $interface-grey-stroke;
-
-    &--no-border {
-      border: none;
-    }
   }
 
   &__pre-title {
@@ -777,9 +785,64 @@ $container-width: 1244px;
 
   &__map {
     max-width: 2300px;
-    filter: grayscale(100%);
     margin: 0 auto;
+    position: relative;
+    cursor: grab;
+
+    canvas {
+      filter: grayscale(1);
+    }
   }
+
+  &__map-btns {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__form {
+    max-width: 1034px;
+  }
+
+  &__form-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin-bottom: 32px;
+
+    label {
+      flex: 1 1 30%;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+
+  &__submit-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__form-note {
+    @include font(text-xxs);
+    color: $text-grey;
+    flex: 0 0 230px;
+  }
+}
+
+.zoom-btn {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(#ccc, 0.8);
+  font-size: 24px;
+  border-radius: 5px;
 }
 
 .card {
@@ -824,6 +887,11 @@ $container-width: 1244px;
   gap: 48px;
   border-radius: 52px 52px 0 0;
   padding-top: 80px;
+  background-color: #fff;
+  padding: 80px;
+  margin-top: -80px;
+  position: relative;
+  z-index: 1;
 }
 
 .service {
