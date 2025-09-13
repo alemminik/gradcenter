@@ -10,6 +10,7 @@
   align-items: center;
   border-radius: 8px;
   gap: 16px;
+  transition: 0.3s;
 
   &--fill {
     background: $interface-lemon;
@@ -18,11 +19,32 @@
     &::before {
       display: none;
       content: url(/img/icons/arrow-left-black.svg);
+      transition: 0.3s;
     }
 
     &::after {
       display: none;
       content: url(/img/icons/arrow-right-black.svg);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        transform: translateX(2px);
+      }
+
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transition: 0s;
+      transform: translateY(-1px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     }
   }
 
@@ -33,11 +55,32 @@
     &::before {
       display: none;
       content: url(/img/icons/arrow-left-lemon.svg);
+      transition: 0.3s;
     }
 
     &::after {
       display: none;
       content: url(/img/icons/arrow-right-lemon.svg);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        transform: translateX(2px);
+      }
+
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transition: 0s;
+      transform: translateY(-1px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     }
   }
 
@@ -48,11 +91,32 @@
     &::before {
       display: none;
       content: url(/img/icons/arrow-left-black.svg);
+      transition: 0.3s;
     }
 
     &::after {
       display: none;
       content: url(/img/icons/arrow-right-black.svg);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        transform: translateX(2px);
+      }
+
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transition: 0s;
+      transform: translateY(-1px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     }
   }
 
@@ -62,11 +126,32 @@
     &::before {
       display: none;
       content: url(/img/icons/arrow-left-lemon.svg);
+      transition: 0.3s;
     }
 
     &::after {
       display: none;
       content: url(/img/icons/arrow-right-lemon.svg);
+      transition: 0.3s;
+    }
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+      &::before {
+        transform: translateX(2px);
+      }
+
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+
+    &:active {
+      transition: 0s;
+      transform: translateY(-1px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0);
     }
   }
 
