@@ -202,6 +202,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const hoverDirectionsLogic = () => {
+    const element = document.querySelectorAll(".direction");
+    if (!element.length) return;
+
+    element.forEach((el) => {
+      const btn = el.querySelector(".direction__btn");
+      if (!btn) return;
+      el.addEventListener("mouseenter", () => {
+        btn.classList.add("hovered");
+      });
+      el.addEventListener("mouseleave", () => {
+        btn.classList.remove("hovered");
+      });
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -210,6 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
     formMaskInputLogic();
     recentSwiperLogic();
     headerSubmenuLogic();
+    hoverDirectionsLogic();
   };
 
   main();

@@ -1,5 +1,6 @@
 @use "../../vars/index.scss" as *;
 @use "../../fonts/font-tokens.scss" as *;
+@use "sass:color";
 
 .ui-tag {
   @include font(sh-m);
@@ -26,10 +27,14 @@
     transition: transform 0.2s;
   }
 
-  &:hover,
   &.hovered {
     background-color: $interface-lemon;
     border-color: $interface-lemon;
+  }
+
+  &:hover {
+    background-color: color.adjust($interface-lemon, $lightness: -10%);
+    border-color: color.adjust($interface-lemon, $lightness: -10%);
   }
 
   &:hover {

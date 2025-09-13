@@ -101,6 +101,7 @@ $container-width: 1244px;
     left: 0;
     background: $interface-white;
     border-radius: 12px;
+    overflow: hidden;
 
     &.active {
       opacity: 1;
@@ -124,6 +125,12 @@ $container-width: 1244px;
     align-items: center;
     justify-content: space-between;
     width: 184px;
+    background-color: #fff;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: $interface-grey-bg;
+    }
   }
 
   &__submenu-link-icon {
