@@ -163,27 +163,54 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const recentSwiperLogic = () => {
+    const slider = document.querySelector(".recent-posts__slider");
+    if (!slider) return;
+
+    const recentSlider = new Swiper(slider, {
+      direction: "horizontal",
+      effect: "coverflow",
+      loop: true,
+      slidesPerView: 3,
+      spaceBetween: 24,
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+      },
+    });
+  };
+
+  const headerSubmenuLogic = () => {
+    const headerItems = document.querySelectorAll(".header__nav-item");
+    if (!headerItems.length) return;
+
+    headerItems.forEach((link) => {
+      const submenu = link.querySelector(".header__submenu");
+      const arrowIcon = link.querySelector(".header__nav-item-arrow");
+      if (!submenu || !arrowIcon) return;
+
+      link.addEventListener("mouseenter", () => {
+        submenu.classList.add("active");
+        arrowIcon.classList.add("active");
+      });
+      link.addEventListener("mouseleave", () => {
+        submenu.classList.remove("active");
+        arrowIcon.classList.remove("active");
+      });
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
     photosStackLogic();
     serviceOptionsHoverLogic();
     formMaskInputLogic();
+    recentSwiperLogic();
+    headerSubmenuLogic();
   };
 
   main();
-});
-
-const recentSlider = new Swiper('.recent-posts__slider', {
-  direction: 'horizontal',
-  effect: 'coverflow',
-  loop: true,
-  slidesPerView: 3,
-  spaceBetween: 24,
-  coverflowEffect: {
-    rotate: 0,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-  },
 });
