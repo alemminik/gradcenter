@@ -173,3 +173,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   main();
 });
+
+const recentSlider = new Swiper('.recent-posts__slider', {
+  direction: 'horizontal',
+  effect: 'coverflow',
+  loop: true,
+  slidesPerView: 3,
+  spaceBetween: 24,
+  coverflowEffect: {
+    rotate: 0,
+    stretch: 0,
+    depth: 100,
+    modifier: 1,
+  },
+});
