@@ -286,6 +286,10 @@ $container-width: 1244px;
     max-width: 1130px;
     margin: 76px 0 32px;
 
+    &--small {
+      max-width: 600px;
+    }
+
     span {
       color: $text-lemon;
     }
