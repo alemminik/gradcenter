@@ -140,26 +140,28 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const formMaskInputLogic = () => {
-    const phoneEl = document.getElementById("phone");
-    if (!phoneEl) return;
+    const phoneEls = document.querySelectorAll("#phone");
+    if (!phoneEls.length) return;
 
-    const mask = IMask(phoneEl, {
-      mask: "+{7} (000) 000 00 00",
-      lazy: false,
-      placeholderChar: "_",
-      overwrite: true,
-    });
+    phoneEls.forEach((phoneEl) => {
+      const mask = IMask(phoneEl, {
+        mask: "+{7} (000) 000 00 00",
+        lazy: false,
+        placeholderChar: "_",
+        overwrite: true,
+      });
 
-    phoneEl.classList.add("empty");
+      phoneEl.classList.add("empty");
 
-    phoneEl.addEventListener("input", () => {
-      const digits = phoneEl.value.replace(/\D/g, "");
+      phoneEl.addEventListener("input", () => {
+        const digits = phoneEl.value.replace(/\D/g, "");
 
-      if (digits.length === 1) {
-        phoneEl.classList.add("empty");
-      } else {
-        phoneEl.classList.remove("empty");
-      }
+        if (digits.length === 1) {
+          phoneEl.classList.add("empty");
+        } else {
+          phoneEl.classList.remove("empty");
+        }
+      });
     });
   };
 
@@ -220,6 +222,52 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const ymapsLogic = async () => {
+    const ymap = document.getElementById("map");
+    if (!ymap) return;
+
+    let currentZoom = 14;
+
+    await ymaps3.ready;
+    const { YMap, YMapDefaultSchemeLayer, YMapMarker, YMapDefaultFeaturesLayer } = ymaps3;
+
+    const map = new YMap(ymap, {
+      location: { center: [30.314997, 59.938784], zoom: currentZoom },
+      mode: "vector",
+      behaviors: ["drag", "pinchZoom"],
+    });
+
+    map.addChild(new YMapDefaultSchemeLayer());
+    map.addChild(new YMapDefaultFeaturesLayer());
+
+    document.getElementById("zoom-in").addEventListener("click", () => {
+      currentZoom = Math.min(currentZoom + 1, 21);
+      map.update({ location: { zoom: currentZoom } });
+    });
+
+    document.getElementById("zoom-out").addEventListener("click", () => {
+      currentZoom = Math.max(currentZoom - 1, 0);
+      map.update({ location: { zoom: currentZoom } });
+    });
+
+    const markerElement = document.createElement("div");
+    markerElement.style.width = "72px";
+    markerElement.style.height = "90px";
+    markerElement.classList.add("ymaps-marker");
+    markerElement.style.backgroundImage = "url(/img/decor/marker.png)";
+    markerElement.style.backgroundSize = "contain";
+    markerElement.style.backgroundRepeat = "no-repeat";
+    markerElement.style.pointerEvents = "none";
+    markerElement.style.transform = "translate(-50%, -100%)";
+
+    const marker = new YMapMarker(
+      { coordinates: [30.314997, 59.938784], draggable: false },
+      markerElement,
+    );
+
+    map.addChild(marker);
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -229,6 +277,7 @@ document.addEventListener("DOMContentLoaded", () => {
     recentSwiperLogic();
     headerSubmenuLogic();
     hoverDirectionsLogic();
+    ymapsLogic();
   };
 
   main();
