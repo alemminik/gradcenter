@@ -210,9 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const btn = el.querySelector(".direction__btn");
       if (!btn) return;
       el.addEventListener("mouseenter", () => {
+        el.classList.add("hovered");
         btn.classList.add("hovered");
       });
       el.addEventListener("mouseleave", () => {
+        el.classList.remove("hovered");
         btn.classList.remove("hovered");
       });
     });
