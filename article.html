@@ -12,6 +12,10 @@
     />
     <link
       rel="stylesheet"
+      href="styles/libs/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="styles/index.css"
     />
     <title>Grad Center</title>
@@ -20,14 +24,28 @@
     <main class="main">
       <ul class="links">
         <li class="links__item">
-          <a class="links__share ui-button ui-button--stroke link" href="#">
-            <img class="links__img" src="./img/icons/link.svg" alt="Link icon"/>
+          <a
+            class="links__share ui-button ui-button--stroke link"
+            href="#"
+          >
+            <img
+              class="links__img"
+              src="./img/icons/link.svg"
+              alt="Link icon"
+            />
             <span class="links__text">Поделиться</span>
           </a>
         </li>
         <li class="links__item">
-          <a class="links__question ui-button ui-button--stroke link" href="#">
-            <img class="links__img" src="./img/icons/message.svg" alt="Message icon"/>
+          <a
+            class="links__question ui-button ui-button--stroke link"
+            href="#"
+          >
+            <img
+              class="links__img"
+              src="./img/icons/message.svg"
+              alt="Message icon"
+            />
             <span class="links__text">Вопрос по статье</span>
           </a>
         </li>
@@ -41,9 +59,278 @@
           <li class="content__item">Что это означает на практике?</li>
         </ul>
       </div>
+      <section class="recent-posts">
+        <div class="container">
+          <div class="recent-posts__title-wrapper">
+            <h2 class="recent-posts__title">Свежие записи</h2>
+            <a
+              class="recent-posts__link ui-button ui-button--fill ui-button--arrow-right"
+              href="#"
+            >
+              Все записи
+            </a>
+          </div>
+          <div class="swiper recent-posts__slider">
+            <div class="swiper-wrapper recent-posts__wrapper">
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-1.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Новость</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-08-06"
+                    >6 августа 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  ГОСТ Р 58169-2018: Синтез права и искусства в сохранении культурного наследия.
+                  Взгляд юриста и реставратора
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-2.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Статья</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-07-15"
+                    >15 июля 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  Правовое регулирование разработки проекта организации работ по сносу (ПОР)
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-1.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Новость</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-07-15"
+                    >15 июля 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  О несущих строительных конструкциях, замена и (или) восстановление которых может
+                  осуществляться при капитальном ремонте
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-1.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Новость</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-08-06"
+                    >6 августа 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  ГОСТ Р 58169-2018: Синтез права и искусства в сохранении культурного наследия.
+                  Взгляд юриста и реставратора
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-2.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Статья</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-07-15"
+                    >15 июля 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  Правовое регулирование разработки проекта организации работ по сносу (ПОР)
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              <article class="swiper-slide recent-post">
+                <div class="recent-post__img-wrapper">
+                  <img
+                    class="recent-post__img"
+                    src="/img/content/recent-posts-img-1.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="recent-post__labels-wrapper">
+                  <ul class="recent-post__labels">
+                    <li class="recent-post__tag ui-tag ui-tag--small">
+                      <a
+                        class="recent-post__link"
+                        href="#"
+                        >Новость</a
+                      >
+                    </li>
+                  </ul>
+                  <time
+                    class="recent-post__date"
+                    datetime="2025-07-15"
+                    >15 июля 2025</time
+                  >
+                </div>
+                <a
+                  class="recent-post__title"
+                  href="https://grad.center/articles/gost_58169-2018_priemka_okn/"
+                >
+                  О несущих строительных конструкциях, замена и (или) восстановление которых может
+                  осуществляться при капитальном ремонте
+                </a>
+                <div class="recent-post__desc-wrapper">
+                  <p class="recent-post__desc">
+                    Стандарт <a
+                      href="https://grad.center/wp-content/uploads/2025/07/%D0%93%D0%9E%D0%A1%D0%A2-%D0%A0-58169-2018-%D0%A1%D0%BE%D1%85%D1%80%D0%B0%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE%D0%B1%D1%8A%D0%B5%D0%BA%D1%82%D0%BE%D0%B2-%D0%BA%D1%83%D0%BB%D1%8C%D1%82%D1%83%D1%80%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BD%D0%B0%D1%81%D0%BB%D0%B5%D0%B4%D0%B8%D1%8F.-%D0%9F%D0%BE%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-%D0%BF%D0%BE%D1%80%D1%8F%D0%B4%D0%BA%D0%B5-%D0%BF%D1%80%D0%BE%D0%B8%D0%B7%D0%B2%D0%BE%D0%B4%D1%81%D1%82%D0%B2%D0%B0-%D0%B8..._%D0%A2%D0%B5%D0%BA%D1%81%D1%82.pdf"
+                      >ГОСТ Р 58169-2018</a
+                    >  «Сохранение объектов культурного наследия. Положение о порядке производства и
+                    приемки работ» н...
+                  </p>
+                  <button class="recent-post__btn ui-circle-filled-arrow-button"></button>
+                </div>
+              </article>
+              
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- SCRIPTS -->
+    <script src="scripts/swiper.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
