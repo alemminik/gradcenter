@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const formMaskInputLogic = () => {
-    const phoneEls = document.querySelectorAll("#phone");
+    const phoneEls = document.querySelectorAll("[aria-mask]");
     if (!phoneEls.length) return;
 
     phoneEls.forEach((phoneEl) => {
@@ -268,6 +268,14 @@ document.addEventListener("DOMContentLoaded", () => {
     map.addChild(marker);
   };
 
+  const modalLogic = () => {
+    MicroModal.init({
+      awaitOpenAnimation: true,
+      onShow: () => document.body.classList.add("modal-open"),
+      onClose: () => document.body.classList.remove("modal-open"),
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -278,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
     headerSubmenuLogic();
     hoverDirectionsLogic();
     ymapsLogic();
+    modalLogic();
   };
 
   main();
