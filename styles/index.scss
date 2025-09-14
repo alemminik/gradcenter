@@ -1157,7 +1157,7 @@ $container-width: 1244px;
     margin-bottom: 24px;
   }
 
-  & p:last-of-type {
+  *:last-child {
     margin: 0;
   }
 }
