@@ -7,6 +7,12 @@
 $container-padding: 20px;
 $container-width: 1244px;
 
+body {
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
 .container {
   max-width: calc(#{$container-width} + #{$container-padding} * 2);
   width: 100%;
@@ -1154,6 +1160,109 @@ $container-width: 1244px;
   }
 }
 
+.post-content {
+  max-width: 821px;
+
+  &__desc {
+    @include font(text-m-news);
+    line-height: 175%;
+    color: $text-main;
+    margin: 0;
+
+    &--underline {
+      font-weight: 700;
+      color: $text-black;
+      text-decoration-line: underline;
+      text-decoration-style: solid;
+      text-decoration-skip-ink: none;
+      text-decoration-thickness: auto;
+      text-underline-offset: auto;
+      text-underline-position: from-font;
+    }
+
+    &--bold {
+      color: $text-black;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    @include font(h2);
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 24px;
+
+    &--accent {
+      color: $text-accent;
+    }
+  }
+
+  &__img {
+    border-radius: 16px;
+    margin-bottom: 40px;
+  }
+
+  &__note {
+    background-color: $interface-grey-bg;
+    border-radius: 24px;
+    padding: 32px 40px;
+    margin-bottom: 40px;
+  }
+
+  &__list {
+    list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 0;
+    padding-left: 22px;
+
+    &--bold {
+      li::marker {
+        font-weight: bold;
+        color: $text-black;
+      }
+    }
+  }
+
+  &__item {
+    @include font(text-m-news);
+    line-height: 175%;
+    color: $text-main;
+    margin: 0;
+  }
+
+  &__tag {
+    display: inline-block;
+    background-color: $interface-lemon;
+    border-radius: 8px;
+    padding: 8px 12px;
+    @include font(text-m-news);
+    font-weight: 500;
+    line-height: 175%;
+    color: $text-black;
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-bottom: 40px; 
+  }
+
+  p:has(+ p), p:has(+ .post-content__list) {
+    margin-bottom: 16px;
+  }
+
+  p:has(+ .post-content__note) {
+    margin-bottom: 24px;
+  }
+
+  *:last-child {
+    margin: 0;
+  }
+}
+
 .links {
   display: flex;
   flex-direction: column;
@@ -1863,5 +1972,131 @@ $container-width: 1244px;
     @include font(text-m);
     color: $text-white;
     margin: 0;
+  }
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  pointer-events: none;
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(6px);
+    background: rgba(31, 31, 31, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+    overflow-y: auto;
+    padding: 10px 0;
+  }
+
+  &__container {
+    background: #fff;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: 0.3s;
+    max-width: 456px;
+    width: 95%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.1);
+    margin: auto 0;
+  }
+
+  &.is-open {
+    pointer-events: auto;
+
+    .modal__container {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .modal__overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &__header {
+    position: relative;
+  }
+
+  &__header-img {
+    width: 456px;
+    height: 288px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+    cursor: pointer;
+    z-index: 1;
+    padding: 0;
+  }
+
+  &__close-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  &__content {
+    padding: 32px 40px;
+  }
+
+  &__pre-title {
+    @include font(sh-s);
+    color: $text-black;
+
+    margin: 0;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    @include font(h2);
+    color: $text-black;
+
+    margin: 0;
+    margin-bottom: 16px;
+  }
+
+  &__desc {
+    @include font(text-s);
+    color: $interface-dark;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+
+  &__form {
+    .ui-input {
+      width: 100%;
+    }
+  }
+
+  &__form-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  &__submit-block {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__form-note {
+    @include font(text-xxs);
+    color: $text-grey;
+    max-width: 180px;
   }
 }
