@@ -12,12 +12,44 @@
     />
     <link
       rel="stylesheet"
+      href="styles/libs/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="styles/index.css"
     />
     <title>Grad Center</title>
   </head>
   <body>
     <main class="main">
+      <div class="swiper news-slider">
+        <div class="swiper-wrapper news-slider__wrapper">
+          <div class="swiper-slide news-slider__slide">
+            <img
+              class="news-slider__img"
+              src="/img/content/news-slider-1.jpg"
+              alt="Котёл"
+            />
+          </div>
+          <div class="swiper-slide news-slider__slide">
+            <!-- <img
+              class="news-slider__img"
+              src="/img/content/news-slider-1.jpg"
+              alt="Котёл"
+            /> -->
+          </div>
+        </div>
+        <div class="news-slider__controls">
+          <div class="swiper-pagination news-slider__pagination"></div>
+          <div
+            class="swiper-button-prev news-slider__btn-prev ui-button ui-button--stroke ui-button--arrow-left"
+          ></div>
+          <div
+            class="swiper-button-next news-slider__btn-next ui-button ui-button--stroke ui-button--arrow-right"
+          ></div>
+        </div>
+      </div>
+
       <div class="resources">
         <h4 class="resources__title">направления услуг центра</h4>
         <ul class="resources__list">
@@ -68,9 +100,54 @@
           </li>
         </ul>
       </div>
+
+      <section class="post-content">
+        <p class="post-content__desc">
+          Специалисты службы технического заказчика ООО «ТДО» были отмечены благодарственным отзывом
+          от ООО «Институт Теплоэнергетики» за успешное сопровождение проекта по реконструкции и
+          техническому перевооружению котельной, расположенной на улице Богайчука в поселке
+          Металлострой.
+        </p>
+        <p class="post-content__desc">
+          ООО «Институт Теплоэнергетики» выступило в качестве генерального подрядчика и
+          проектировщика этого значимого объекта, сметная стоимость которого превысила 2,3 миллиарда
+          рублей.
+        </p>
+        <p class="post-content__desc">
+          Модернизация котельной обеспечит надежное и бесперебойное теплоснабжение 55 зданий,
+          включая 7 детских садов и учебных заведений, что улучшит качество жизни примерно 20 тысяч
+          жителей. Кроме того, создаются условия для подключения новых потребителей к системе
+          теплоснабжения.
+        </p>
+        <p class="post-content__desc post-content__desc--large">
+          <a
+            class="post-content__desc--underline post-content__desc--bold"
+            href="#"
+            >Губернатор Александр Беглов подчеркнул</a
+          > важность подобных проектов: «Президент России продлил проект «Формирование комфортной
+          городской среды» до 2030 года. Стабильная работа всех систем ЖКХ — одна из важнейших
+          составляющих, от которых зависит настроение горожан и качество их жизни. Модернизация
+          сетей и котельных – это не только комфорт жителей, но и значительный вклад в экологическую
+          безопасность Петербурга. Например, реконструкция котельной в Металлострое обеспечит
+          сокращение выбросов вредных веществ в атмосферу в 2,5 раза».
+        </p>
+        <p class="post-content__desc post-content__desc--large">
+          <a
+            class="post-content__desc--underline post-content__desc--bold"
+            href="#"
+            >Губернатор Александр Беглов подчеркнул</a
+          > важность подобных проектов: «Президент России продлил проект «Формирование комфортной
+          городской среды» до 2030 года. Стабильная работа всех систем ЖКХ — одна из важнейших
+          составляющих, от которых зависит настроение горожан и качество их жизни. Модернизация
+          сетей и котельных – это не только комфорт жителей, но и значительный вклад в экологическую
+          безопасность Петербурга. Например, реконструкция котельной в Металлострое обеспечит
+          сокращение выбросов вредных веществ в атмосферу в 2,5 раза».
+        </p>
+      </section>
     </main>
 
     <!-- SCRIPTS -->
+    <script src="scripts/swiper.min.js"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>
