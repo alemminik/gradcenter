@@ -276,6 +276,23 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const headerHeightLogic = () => {
+    const header = document.querySelector(".header");
+    if (!header) return;
+
+    document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+  };
+
+  const listenersLogic = () => {
+    window.addEventListener("load", headerHeightLogic);
+    window.addEventListener("resize", headerHeightLogic);
+    const header = document.querySelector(".header");
+    if (header) {
+      const resizeObserver = new ResizeObserver(headerHeightLogic);
+      resizeObserver.observe(header);
+    }
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -287,6 +304,8 @@ document.addEventListener("DOMContentLoaded", () => {
     hoverDirectionsLogic();
     ymapsLogic();
     modalLogic();
+    headerHeightLogic();
+    listenersLogic();
   };
 
   main();
