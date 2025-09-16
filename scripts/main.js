@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const formMaskInputLogic = () => {
-    const phoneEls = document.querySelectorAll("#phone");
+    const phoneEls = document.querySelectorAll("[aria-mask]");
     if (!phoneEls.length) return;
 
     phoneEls.forEach((phoneEl) => {
@@ -288,6 +288,31 @@ document.addEventListener("DOMContentLoaded", () => {
     map.addChild(marker);
   };
 
+  const modalLogic = () => {
+    MicroModal.init({
+      awaitOpenAnimation: true,
+      onShow: () => document.body.classList.add("modal-open"),
+      onClose: () => document.body.classList.remove("modal-open"),
+    });
+  };
+
+  const headerHeightLogic = () => {
+    const header = document.querySelector(".header");
+    if (!header) return;
+
+    document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+  };
+
+  const listenersLogic = () => {
+    window.addEventListener("load", headerHeightLogic);
+    window.addEventListener("resize", headerHeightLogic);
+    const header = document.querySelector(".header");
+    if (header) {
+      const resizeObserver = new ResizeObserver(headerHeightLogic);
+      resizeObserver.observe(header);
+    }
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -299,6 +324,9 @@ document.addEventListener("DOMContentLoaded", () => {
     headerSubmenuLogic();
     hoverDirectionsLogic();
     ymapsLogic();
+    modalLogic();
+    headerHeightLogic();
+    listenersLogic();
   };
 
   main();
