@@ -741,6 +741,7 @@ body {
 
   &--consultation {
     max-width: 832px;
+    padding: 40px 0 80px;
   }
 
   &__glow-circle {
@@ -1298,6 +1299,27 @@ body {
         color: $text-black;
       }
     }
+
+    &--large {
+      list-style: none;
+      padding: 0;
+      margin-left: 69px;
+      li {
+        position: relative;
+        counter-increment: item;
+      }
+
+      li::before {
+        content: counter(item, decimal-leading-zero);
+        position: absolute;
+        left: -69px;
+        top: 8px;
+        @include font(text-xl);
+        font-size: 40px;
+        line-height: 90%;
+        color: $text-light-grey;
+      }
+    }
   }
 
   &__item {
@@ -1335,7 +1357,7 @@ body {
   }
 
   *:last-child {
-    margin: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -2348,5 +2370,4 @@ body {
     height: 100%;
     object-fit: cover;
   }
-
 }
