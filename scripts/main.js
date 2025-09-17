@@ -80,10 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const translateY = -dy * pushFactor * proximity;
 
             btn.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
-            btn.classList.add("hovered");
           } else {
             btn.style.transform = "translate(0, 0) scale(1)";
-            btn.classList.remove("hovered");
           }
         });
       });
@@ -175,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
       loop: true,
       slidesPerView: 3,
       spaceBetween: 24,
+      grabCursor: true,
       coverflowEffect: {
         rotate: 0,
         stretch: 0,
@@ -192,6 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
       direction: "horizontal",
       loop: false,
       slidesPerView: 1,
+      grabCursor: true,
 
       pagination: {
         el: ".news-slider__pagination",
@@ -210,10 +210,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const newsSlider = new Swiper(slider, {
       direction: "horizontal",
-      
+
       loop: false,
       slidesPerView: 2,
       spaceBetween: 24,
+      grabCursor: true,
 
       navigation: {
         nextEl: ".case-slider__btn-next",
@@ -331,6 +332,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  const hoverResourceLinksLogic = () => {
+    const resourceLinks = document.querySelectorAll(".resource__link");
+    if (!resourceLinks.length) return;
+
+    resourceLinks.forEach((link) => {
+      const btn = link.querySelector(".resource__btn");
+      if (!btn) return;
+
+      link.addEventListener("mouseenter", () => {
+        btn.classList.add("hovered");
+      });
+      link.addEventListener("mouseleave", () => {
+        btn.classList.remove("hovered");
+      });
+    });
+  };
+
   const main = () => {
     animateNumberLogic();
     servicesGridLogic();
@@ -342,6 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
     casesSwiperLogic();
     headerSubmenuLogic();
     hoverDirectionsLogic();
+    hoverResourceLinksLogic();
     ymapsLogic();
     modalLogic();
     headerHeightLogic();

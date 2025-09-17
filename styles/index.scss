@@ -52,39 +52,14 @@ body {
 .sidebar-wrapper {
   flex: 0 0 360px;
   position: sticky;
-  top: 27px;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: 0;
-    right: 0;
-    height: 40px;
-    pointer-events: none;
-    background: linear-gradient(to bottom, #fff, transparent);
-  }
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 40px;
-    pointer-events: none;
-    background: linear-gradient(to top, #fff, transparent);
-  }
+  top: 20px;
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 48px;
-  overflow-y: auto;
-  max-height: calc(100vh - 30px);
   padding-top: 3px;
-  padding-bottom: 20px;
 }
 
 .hero-wrapper {
@@ -270,9 +245,8 @@ body {
   min-height: 720px;
   display: flex;
 
-  .container {
+  &__container {
     flex: 1;
-    position: relative;
   }
 
   &__breadcrumbs {
@@ -295,8 +269,8 @@ body {
 
   &__media-wrapper {
     position: absolute;
-    top: -100px;
-    right: -80px;
+    top: 0;
+    right: 0;
     z-index: 0;
     mask-image: linear-gradient(to right, black 90%, transparent 100%),
       linear-gradient(to bottom, black 90%, transparent 100%),
@@ -710,6 +684,8 @@ body {
     display: flex;
     align-items: center;
     gap: 23px;
+    margin: 0;
+    padding: 0;
   }
 }
 
@@ -1216,6 +1192,11 @@ body {
     border-radius: 12px;
     background-color: $interface-grey-bg;
     padding: 12px 24px;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: #eee;
+    }
   }
 
   &__title {
@@ -1519,7 +1500,7 @@ body {
   box-shadow: 4px 11px 35px 0 rgba(0, 0, 0, 0.25);
   padding: 32px;
   height: auto;
-  
+
   &__content {
     display: flex;
     flex-direction: column;
@@ -1803,6 +1784,15 @@ body {
     padding: 0;
   }
 
+  &__social {
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  }
+
   &__btn {
     width: 100%;
     padding: 12px 18px;
@@ -1823,6 +1813,26 @@ body {
     line-height: 162%;
     letter-spacing: 0.02em;
     color: #fff;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      width: 0%;
+      height: 0.5px;
+      border-radius: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #fff;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        width: 100%;
+      }
+    }
   }
 }
 
@@ -2104,7 +2114,6 @@ body {
   }
 
   &__container {
-    background: #fff;
     opacity: 0;
     transform: translateY(20px);
     transition: 0.3s;
@@ -2156,6 +2165,7 @@ body {
   }
 
   &__content {
+    background-color: #fff;
     padding: 32px 40px;
   }
 
@@ -2377,5 +2387,17 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+}
+
+@media (min-width: 1650px) {
+  .hero {
+    &__container {
+      position: relative;
+    }
+    &__media-wrapper {
+      top: -100px;
+      right: -80px;
+    }
   }
 }
