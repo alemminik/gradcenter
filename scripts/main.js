@@ -205,7 +205,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const casesSwiperLogic = () => {
-    const slider = document.querySelector(".accordion-slider");
+    const slider = document.querySelector(".case-slider");
     if (!slider) return;
 
     const newsSlider = new Swiper(slider, {
@@ -216,8 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
       spaceBetween: 24,
 
       navigation: {
-        nextEl: ".accordion-slider__btn-next",
-        prevEl: ".accordion-slider__btn-prev",
+        nextEl: ".case-slider__btn-next",
+        prevEl: ".case-slider__btn-prev",
       },
     });
   };

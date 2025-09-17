@@ -2178,14 +2178,14 @@ body {
   }
 }
 
-.accordions {
+.cases {
   &__list {
     padding: 0;
     margin: 0;
   }
 }
 
-.accordion {
+.case {
   padding-bottom: 24px;
   border-bottom: 1px solid rgba($interface-dark, 0.3);
   &__control {
@@ -2207,7 +2207,7 @@ body {
     object-fit: cover;
   }
 
-  &__heading {
+  &__header {
     flex: 0 1 1014px;
   }
 
@@ -2243,8 +2243,8 @@ body {
   }
 }
 
-.accordion-body {
-  padding: 32px 0 24px 152px;
+.case-body {
+  padding: 32px 0 0 152px;
 
   &__text {
     @include font(sh-l);
@@ -2303,10 +2303,10 @@ body {
   }
 }
 
-.accordion-address {
+.case-address {
   margin-bottom: 40px;
 
-  &__pre-title {
+  &__subtext {
     display: inline-block;
     @include font(text-m-evolv);
     color: $text-black;
@@ -2314,14 +2314,15 @@ body {
     margin-bottom: 8px;
   }
 
-  &__title {
+  &__text {
+    display: block;
     @include font(text-l);
     color: $text-black;
     margin: 0;
   }
 }
 
-.accordion-slider {
+.case-slider {
   max-width: 870px;
   margin: 0;
 
