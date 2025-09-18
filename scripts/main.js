@@ -1,3 +1,18 @@
+function getVerticalPadding(element) {
+  if (!element) return { paddingTop: 0, paddingBottom: 0, verticalPadding: 0 };
+
+  const styles = window.getComputedStyle(element);
+
+  const paddingTop = parseFloat(styles.paddingTop) || 0;
+  const paddingBottom = parseFloat(styles.paddingBottom) || 0;
+
+  return {
+    paddingTop,
+    paddingBottom,
+    verticalPadding: paddingTop + paddingBottom,
+  };
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const animateNumberLogic = () => {
     const countersSection = document.getElementById("counters-section");
@@ -138,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const formMaskInputLogic = () => {
-    const phoneEls = document.querySelectorAll("[aria-mask]");
+    const phoneEls = document.querySelectorAll("[data-mask]");
     if (!phoneEls.length) return;
 
     phoneEls.forEach((phoneEl) => {
@@ -169,17 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const recentSlider = new Swiper(slider, {
       direction: "horizontal",
-      effect: "coverflow",
-      loop: true,
       slidesPerView: 3,
       spaceBetween: 24,
       grabCursor: true,
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-      },
     });
   };
 
@@ -192,9 +199,28 @@ document.addEventListener("DOMContentLoaded", () => {
       loop: false,
       slidesPerView: 1,
       grabCursor: true,
+      spaceBetween: 24,
 
       pagination: {
         el: ".news-slider__pagination",
+        type: "fraction",
+        renderFraction: function (currentClass, totalClass) {
+          return (
+            '<span class="' +
+            currentClass +
+            '"></span>' +
+            "<span class='pagination-separator'>/</span>" +
+            '<span class="' +
+            totalClass +
+            '"></span>'
+          );
+        },
+        formatFractionCurrent: function (number) {
+          return number < 10 ? "0" + number : number; // добавляем 0
+        },
+        formatFractionTotal: function (number) {
+          return number < 10 ? "0" + number : number;
+        },
       },
 
       navigation: {
@@ -205,21 +231,27 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const casesSwiperLogic = () => {
-    const slider = document.querySelector(".case-slider");
-    if (!slider) return;
+    const sliders = document.querySelectorAll(".case-slider");
+    if (!sliders.length) return;
 
-    const newsSlider = new Swiper(slider, {
-      direction: "horizontal",
+    sliders.forEach((slider) => {
+      const nextEl = slider.parentElement.querySelector(".case-slider__btn-next");
+      const prevEl = slider.parentElement.querySelector(".case-slider__btn-prev");
+      if (!nextEl || !prevEl) return;
 
-      loop: false,
-      slidesPerView: 2,
-      spaceBetween: 24,
-      grabCursor: true,
+      const casesSlider = new Swiper(slider, {
+        direction: "horizontal",
 
-      navigation: {
-        nextEl: ".case-slider__btn-next",
-        prevEl: ".case-slider__btn-prev",
-      },
+        loop: false,
+        slidesPerView: 2,
+        spaceBetween: 24,
+        grabCursor: true,
+
+        navigation: {
+          nextEl: nextEl,
+          prevEl: prevEl,
+        },
+      });
     });
   };
 
@@ -236,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
         submenu.classList.add("active");
         arrowIcon.classList.add("active");
       });
+
       link.addEventListener("mouseleave", () => {
         submenu.classList.remove("active");
         arrowIcon.classList.remove("active");
@@ -349,7 +382,86 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const choicesLogic = () => {
+    const selects = document.querySelectorAll(".js-choices");
+
+    if (!selects.length) return;
+
+    selects.forEach((select) => {
+      if (select.classList.contains("js-choices-search")) {
+        const choices = new Choices(select, {
+          searchEnabled: true,
+          itemSelectText: "",
+          shouldSort: false,
+          allowHTML: true,
+          noResultsText: "Не найдено",
+          placeholder: true,
+          placeholderValue: "Поиск",
+          searchPlaceholderValue: "Начните ввод...",
+        });
+      } else {
+        const choices = new Choices(select, {
+          searchEnabled: false,
+          itemSelectText: "",
+          shouldSort: false,
+          allowHTML: true,
+        });
+      }
+    });
+  };
+
+  const casesAccordionsLogic = () => {
+    const cases = document.querySelectorAll(".case");
+    if (!cases.length) return;
+
+    cases.forEach((caseItem) => {
+      const arrow = caseItem.querySelector(".case__icon");
+      const body = caseItem.querySelector(".case-body");
+      body.style.transition = "0s";
+      const offsetHeight = caseItem.offsetHeight;
+      const { paddingTop, paddingBottom } = getVerticalPadding(body);
+      body.style.paddingTop = "0px";
+      body.style.paddingBottom = "0px";
+      body.style.maxHeight = "0px";
+      body.style.opacity = "1";
+      body.style.transition = "0.7s";
+
+      if (!arrow || !body) return;
+
+      arrow.addEventListener("click", () => {
+        const wasOpen = caseItem.classList.contains("isOpen");
+
+        if (wasOpen) {
+          body.style.maxHeight = "0px";
+          caseItem.classList.remove("isOpen");
+          arrow.classList.remove("ui-circle-arrow-button--active");
+          body.style.paddingTop = "0px";
+          body.style.paddingBottom = "0px";
+        } else {
+          body.style.maxHeight = `${offsetHeight}px`;
+          caseItem.classList.add("isOpen");
+          arrow.classList.add("ui-circle-arrow-button--active");
+          body.style.paddingTop = `${paddingTop}px`;
+          body.style.paddingBottom = `${paddingBottom}px`;
+        }
+
+        cases.forEach((otherCase) => {
+          if (otherCase === caseItem) return;
+
+          const otherArrow = otherCase.querySelector(".case__icon");
+          const otherBody = otherCase.querySelector(".case-body");
+          otherBody.style.maxHeight = "0px";
+          otherCase.classList.remove("isOpen");
+          otherArrow?.classList.remove("ui-circle-arrow-button--active");
+          otherBody.style.paddingTop = "0px";
+          otherBody.style.paddingBottom = "0px";
+        });
+      });
+    });
+  };
+
   const main = () => {
+    casesAccordionsLogic();
     animateNumberLogic();
     servicesGridLogic();
     photosStackLogic();
@@ -365,6 +477,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalLogic();
     headerHeightLogic();
     listenersLogic();
+    choicesLogic();
   };
 
   main();

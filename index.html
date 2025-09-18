@@ -12,6 +12,10 @@
     />
     <link
       rel="stylesheet"
+      href="styles/libs/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="styles/index.css"
     />
     <title>Grad Center</title>
@@ -533,7 +537,7 @@
               <div class="direction__content">
                 <div class="direction__title-wrapper">
                   <h4 class="direction__title">Градостроительный и правовой консалтинг</h4>
-                  <button class="direction__btn ui-circle-filled-arrow-button"></button>
+                  <div class="direction__btn ui-circle-filled-arrow-button"></div>
                 </div>
                 <p class="direction__desc">
                   Обеспечиваем правовую основу проекта, решаем земельные вопросы и готовим
@@ -548,7 +552,7 @@
               <div class="direction__content">
                 <div class="direction__title-wrapper">
                   <h4 class="direction__title">Проектирование и&nbsp;экспертиза</h4>
-                  <button class="direction__btn ui-circle-filled-arrow-button"></button>
+                  <div class="direction__btn ui-circle-filled-arrow-button"></div>
                 </div>
                 <p class="direction__desc">
                   Создаём полный комплект проектной документации — от архитектуры до инженерных
@@ -563,7 +567,7 @@
               <div class="direction__content">
                 <div class="direction__title-wrapper">
                   <h4 class="direction__title">Культурное наследие</h4>
-                  <button class="direction__btn ui-circle-filled-arrow-button"></button>
+                  <div class="direction__btn ui-circle-filled-arrow-button"></div>
                 </div>
                 <p class="direction__desc">
                   Полный цикл работ с памятниками архитектуры: от научных исследований и
@@ -578,7 +582,7 @@
               <div class="direction__content">
                 <div class="direction__title-wrapper">
                   <h4 class="direction__title">Сопровождение строительства</h4>
-                  <button class="direction__btn ui-circle-filled-arrow-button"></button>
+                  <div class="direction__btn ui-circle-filled-arrow-button"></div>
                 </div>
                 <p class="direction__desc">
                   Представляем ваши интересы в госорганах, получаем ключевые разрешения и
@@ -593,7 +597,7 @@
               <div class="direction__content">
                 <div class="direction__title-wrapper">
                   <h4 class="direction__title">Благоустройство и&nbsp;некапитальные</h4>
-                  <button class="direction__btn ui-circle-filled-arrow-button"></button>
+                  <div class="direction__btn ui-circle-filled-arrow-button"></div>
                 </div>
                 <p class="direction__desc">
                   Формируем гармоничную среду. Проектируем и легализуем элементы благоустройства,
@@ -622,6 +626,7 @@
                 <li class="centers-contacts__item">
                   <img
                     src="/img/icons/office.svg"
+                    alt=""
                     class="centers-contacts__item-icon"
                   />
                   <div class="centers-contacts__item-info">
@@ -633,6 +638,7 @@
                 </li>
                 <li class="centers-contacts__item">
                   <img
+                    alt=""
                     src="/img/icons/phone.svg"
                     class="centers-contacts__item-icon"
                   />
@@ -643,6 +649,7 @@
                 </li>
                 <li class="centers-contacts__item">
                   <img
+                    alt=""
                     src="/img/icons/mail.svg"
                     class="centers-contacts__item-icon"
                   />
@@ -670,7 +677,7 @@
                   <label class="ui-input-wrapper">
                     <span class="ui-input-label">Номер телефона</span>
                     <input
-                      aria-mask
+                      data-mask
                       class="ui-input"
                       type="text"
                       placeholder="+7 (___) ___ __ __"
@@ -1063,7 +1070,6 @@
           class="modal__container"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="modal-1-title"
         >
           <header class="modal__header">
             <img
@@ -1083,7 +1089,7 @@
               />
             </button>
           </header>
-          <main class="modal__content">
+          <div class="modal__content">
             <span class="modal__pre-title">есть вопросы?</span>
             <h2 class="modal__title">Заказать звонок<br />👋</h2>
             <p class="modal__desc">
@@ -1106,7 +1112,7 @@
                 <label class="ui-input-wrapper">
                   <span class="ui-input-label">Номер телефона</span>
                   <input
-                    aria-mask
+                    data-mask
                     class="ui-input"
                     type="text"
                     placeholder="+7 (___) ___ __ __"
@@ -1125,12 +1131,15 @@
                 </p>
               </div>
             </form>
-          </main>
+          </div>
         </div>
       </div>
     </div>
 
     <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@11.1.0/public/assets/scripts/choices.min.js"></script>
+    <script src="https://api-maps.yandex.ru/v3/?apikey=f628b276-3f01-444e-a4fe-6d3b633d635c&lang=ru_RU"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="scripts/main.js"></script>

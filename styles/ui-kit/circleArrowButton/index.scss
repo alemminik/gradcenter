@@ -1,0 +1,75 @@
+@use "../../vars/index.scss" as *;
+@use "../../fonts/font-tokens.scss" as *;
+
+.ui-circle-arrow-button {
+  border: 1px solid $interface-black;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  border-radius: 24px;
+  box-shadow: 3px 9px 30px 0 rgba(0, 0, 0, 0.07);
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  transition: 0.3s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $interface-black;
+    mask: url("../../../img/icons/arrow-small-down.svg") no-repeat center / contain;
+    transition: 0.3s;
+  }
+
+  &--active {
+    background-color: $interface-black;
+
+    &::after {
+      background-color: $interface-white;
+      transform: rotate(180deg) translate(50%, 50%);
+    }
+  }
+
+  &:hover {
+    background-color: $interface-lemon;
+    border-color: $interface-lemon;
+
+    &::after {
+      background-color: $interface-black;
+    }
+  }
+
+  &--large {
+    width: 48px;
+    height: 48px;
+
+    &::after {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--medium {
+    width: 40px;
+    height: 40px;
+
+    &::after {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--small {
+    width: 32px;
+    height: 32px;
+
+    &::after {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

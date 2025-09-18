@@ -12,11 +12,15 @@
     />
     <link
       rel="stylesheet"
+      href="styles/libs/swiper.min.css"
+    />
+    <link
+      rel="stylesheet"
       href="styles/index.css"
     />
     <title>Grad Center</title>
   </head>
-  <body>
+  <body class="page-flex">
     <header class="header">
       <div class="container">
         <div class="header__inner">
@@ -266,14 +270,19 @@
               </div>
               <span class="header__schedule-text">08:00 - 22:00, без выходных </span>
             </div>
-            <button class="ui-button ui-button--fill">Заказать звонок</button>
+            <button
+              class="ui-button ui-button--fill"
+              data-micromodal-trigger="modal-1"
+            >
+              Заказать звонок
+            </button>
           </div>
         </div>
       </div>
     </header>
     <div class="hero-wrapper">
       <section class="hero">
-        <div class="container">
+        <div class="container hero__container">
           <div class="hero__media-wrapper">
             <img
               src="/img/decor/article-bg.jpg"
@@ -291,11 +300,11 @@
               <li>
                 <a href="#">Главная</a>
               </li>
-              <div>&gt;</div>
+              <li>&gt;</li>
               <li>
                 <a href="#">Статьи</a>
               </li>
-              <div>&gt;</div>
+              <li>&gt;</li>
               <li>
                 <span class="hero__breadcrumbs-link"
                   >Обследование конструкций зданий: это инженерные изыскания и когда их
@@ -344,44 +353,21 @@
         <div class="container">
           <div class="sidebar-wrapper">
             <aside class="sidebar">
-              <ul class="links">
-                <li class="links__item">
-                  <a
-                    class="links__share ui-button ui-button--stroke link"
-                    href="#"
-                  >
-                    <img
-                      class="links__img"
-                      src="./img/icons/link.svg"
-                      alt="Link icon"
-                    />
-                    <span class="links__text">Поделиться</span>
-                  </a>
-                </li>
-                <li class="links__item">
-                  <a
-                    class="links__question ui-button ui-button--stroke link"
-                    href="#"
-                  >
-                    <img
-                      class="links__img"
-                      src="./img/icons/message.svg"
-                      alt="Message icon"
-                    />
-                    <span class="links__text">Вопрос по статье</span>
-                  </a>
-                </li>
-              </ul>
-              <div class="content">
-                <span class="content__title">Содержание статьи</span>
-                <ul class="content__list">
-                  <li class="content__item">Что такое техническое обследование?</li>
-                  <li class="content__item">
-                    Обследование — основа для проектирования, а не его часть
-                  </li>
-                  <li class="content__item">Юридический статус: решение Верховного Суда</li>
-                  <li class="content__item">Что это означает на практике?</li>
-                </ul>
+              <select class="js-choices js-choices-search">
+                <option>Все объекты</option>
+                <option>Объекты культурного наследия</option>
+                <option>Производственные объекты</option>
+                <option>Некапитальные объекты</option>
+                <option>Жилые объекты</option>
+                <option>Административные объекты</option>
+              </select>
+              <div class="topics">
+                <h4 class="topics__title">контент по темам</h4>
+                <div class="topics__content">
+                  <span class="topics__item"># Новости группы компаний</span>
+                  <span class="topics__item"># Новости отрасли</span>
+                  <span class="topics__item"># Экспертные статьи</span>
+                </div>
               </div>
               <div class="resources">
                 <h4 class="resources__title">направления услуг центра</h4>
@@ -392,7 +378,7 @@
                       href="#"
                     >
                       <h5 class="resource__title">Градостроительный и правовой консалтинг</h5>
-                      <button class="resource__btn ui-circle-filled-arrow-button"></button>
+                      <div class="resource__btn ui-circle-filled-arrow-button"></div>
                     </a>
                   </li>
                   <li class="resources__item resource">
@@ -401,7 +387,7 @@
                       href="#"
                     >
                       <h5 class="resource__title">Проектирование и&nbsp;экспертиза</h5>
-                      <button class="resource__btn ui-circle-filled-arrow-button"></button>
+                      <div class="resource__btn ui-circle-filled-arrow-button"></div>
                     </a>
                   </li>
                   <li class="resources__item resource">
@@ -410,7 +396,7 @@
                       href="#"
                     >
                       <h5 class="resource__title">Согласование и сопровождение строительства</h5>
-                      <button class="resource__btn ui-circle-filled-arrow-button"></button>
+                      <div class="resource__btn ui-circle-filled-arrow-button"></div>
                     </a>
                   </li>
                   <li class="resources__item resource">
@@ -419,7 +405,7 @@
                       href="#"
                     >
                       <h5 class="resource__title">Работы на объектах культурного наследия</h5>
-                      <button class="resource__btn ui-circle-filled-arrow-button"></button>
+                      <div class="resource__btn ui-circle-filled-arrow-button"></div>
                     </a>
                   </li>
                   <li class="resources__item resource">
@@ -428,7 +414,7 @@
                       href="#"
                     >
                       <h5 class="resource__title">Благоустройство и некапитальные объекты</h5>
-                      <button class="resource__btn ui-circle-filled-arrow-button"></button>
+                      <div class="resource__btn ui-circle-filled-arrow-button"></div>
                     </a>
                   </li>
                 </ul>
@@ -463,73 +449,208 @@
                   >
                 </div>
               </div>
-            </div>
-
-            <div class="topics">
-              <h4 class="topics__title">контент по темам</h4>
-              <div class="topics__content">
-                <span class="topics__item"># Новости группы компаний</span>
-                <span class="topics__item"># Новости отрасли</span>
-                <span class="topics__item"># Экспертные статьи</span>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
+              </div>
+              <div class="post">
+                <div class="post__img-wrapper">
+                  <img
+                    class="post__img"
+                    src="./img/content/post-img.jpg"
+                    alt="Логотип компании"
+                  />
+                </div>
+                <div class="post__content">
+                  <span class="post__date">6 августа 2025</span>
+                  <h4 class="post__title">
+                    Смена ВРИ арендованного участка: руководство для бизнеса и судебная практика
+                  </h4>
+                  <p class="post__desc">
+                    Планы бизнеса меняются: вчера вы арендовали участок под гостиницу, а сегодня
+                    экономическая конъюнктура диктует необходимость развернуть на этой же земле
+                    санаторно-кур...
+                  </p>
+                  <a
+                    class="ui-button ui-button--stroke"
+                    href="#"
+                    >Читать подробнее</a
+                  >
+                </div>
               </div>
             </div>
-
-            <div class="resources">
-              <h4 class="resources__title">направления услуг центра</h4>
-              <ul class="resources__list">
-                <li class="resources__item resource">
-                  <a
-                    class="resource__link"
-                    href="#"
-                  >
-                    <h5 class="resource__title">Градостроительный и правовой консалтинг</h5>
-                    <button class="resource__btn ui-circle-filled-arrow-button"></button>
-                  </a>
-                </li>
-                <li class="resources__item resource">
-                  <a
-                    class="resource__link"
-                    href="#"
-                  >
-                    <h5 class="resource__title">Проектирование и&nbsp;экспертиза</h5>
-                    <button class="resource__btn ui-circle-filled-arrow-button"></button>
-                  </a>
-                </li>
-                <li class="resources__item resource">
-                  <a
-                    class="resource__link"
-                    href="#"
-                  >
-                    <h5 class="resource__title">Согласование и сопровождение строительства</h5>
-                    <button class="resource__btn ui-circle-filled-arrow-button"></button>
-                  </a>
-                </li>
-                <li class="resources__item resource">
-                  <a
-                    class="resource__link"
-                    href="#"
-                  >
-                    <h5 class="resource__title">Работы на объектах культурного наследия</h5>
-                    <button class="resource__btn ui-circle-filled-arrow-button"></button>
-                  </a>
-                </li>
-                <li class="resources__item resource">
-                  <a
-                    class="resource__link"
-                    href="#"
-                  >
-                    <h5 class="resource__title">Благоустройство и некапитальные объекты</h5>
-                    <button class="resource__btn ui-circle-filled-arrow-button"></button>
-                  </a>
-                </li>
-              </ul>
+            <div class="pagination">
+              <button class="pagination__button">
+                <span>Первая</span>
+              </button>
+              <button class="pagination__button">
+                <span>Назад</span>
+              </button>
+              <button class="pagination__button"><span>1</span></button>
+              <button class="pagination__button"><span>2</span></button>
+              <button class="pagination__button"><span>3</span></button>
+              <button class="pagination__button"><span>4</span></button>
+              <button class="pagination__button"><span>...</span></button>
+              <button class="pagination__button"><span>25</span></button>
+              <button class="pagination__button">
+                <span>Вперед</span>
+              </button>
+              <button class="pagination__button">
+                <span>Последняя</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer footer--top-offset">
       <div class="footer__container">
         <div class="footer__main">
           <ul class="footer__main-list footer-list">
@@ -882,7 +1003,6 @@
           class="modal__container"
           role="dialog"
           aria-modal="true"
-          aria-labelledby="modal-1-title"
         >
           <header class="modal__header">
             <img
@@ -902,7 +1022,7 @@
               />
             </button>
           </header>
-          <main class="modal__content">
+          <div class="modal__content">
             <span class="modal__pre-title">есть вопросы?</span>
             <h2 class="modal__title">Заказать звонок<br />👋</h2>
             <p class="modal__desc">
@@ -925,7 +1045,7 @@
                 <label class="ui-input-wrapper">
                   <span class="ui-input-label">Номер телефона</span>
                   <input
-                    aria-mask
+                    data-mask
                     class="ui-input"
                     type="text"
                     placeholder="+7 (___) ___ __ __"
@@ -944,11 +1064,15 @@
                 </p>
               </div>
             </form>
-          </main>
+          </div>
         </div>
       </div>
     </div>
+
     <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js@11.1.0/public/assets/scripts/choices.min.js"></script>
+    <script src="https://api-maps.yandex.ru/v3/?apikey=f628b276-3f01-444e-a4fe-6d3b633d635c&lang=ru_RU"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/imask"></script>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
     <script src="scripts/main.js"></script>
