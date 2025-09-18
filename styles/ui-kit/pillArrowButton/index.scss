@@ -1,0 +1,62 @@
+@use "../../vars/index.scss" as *;
+@use "../../fonts/font-tokens.scss" as *;
+
+.ui-pill-arrow-button {
+  border: 1px solid $interface-black;
+  background-color: transparent;
+  transition: 0.3s;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  border-radius: 70px;
+  cursor: pointer;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: url("../../../img/icons/arrow-right-black.svg") no-repeat center;
+    background-size: contain;
+  }
+
+  &:hover {
+    background-color: $interface-lemon;
+    border-color: $interface-lemon;
+  }
+
+  &--back {
+    transform: rotate(180deg);
+  }
+
+  &--large {
+    width: 88px;
+    height: 56px;
+
+    &::after {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--medium {
+    width: 76px;
+    height: 48px;
+
+    &::after {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--small {
+    width: 64px;
+    height: 40px;
+
+    &::after {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
