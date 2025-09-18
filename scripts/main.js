@@ -416,6 +416,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cases.forEach((caseItem) => {
       const arrow = caseItem.querySelector(".case__icon");
+      const control = caseItem.querySelector(".case__control");
       const body = caseItem.querySelector(".case-body");
       body.style.transition = "0s";
       const offsetHeight = caseItem.offsetHeight;
@@ -426,9 +427,17 @@ document.addEventListener("DOMContentLoaded", () => {
       body.style.opacity = "1";
       body.style.transition = "0.7s";
 
-      if (!arrow || !body) return;
+      if (!arrow || !body || !control) return;
 
-      arrow.addEventListener("click", () => {
+      control.addEventListener("mouseenter", () => {
+        arrow.classList.add("hovered");
+      });
+
+      control.addEventListener("mouseleave", () => {
+        arrow.classList.remove("hovered");
+      });
+
+      control.addEventListener("click", () => {
         const wasOpen = caseItem.classList.contains("isOpen");
 
         if (wasOpen) {

@@ -2314,6 +2314,7 @@ body {
     display: flex;
     gap: 32px;
     text-align: left;
+    cursor: pointer;
   }
 
   &__img-wrapper {
@@ -2354,10 +2355,6 @@ body {
     padding: 0;
     display: flex;
     gap: 8px;
-  }
-
-  &__tag {
-    cursor: pointer;
   }
 
   &__icon {

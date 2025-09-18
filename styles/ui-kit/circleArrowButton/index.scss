@@ -34,7 +34,8 @@
     }
   }
 
-  &:hover {
+  &:hover,
+  &.hovered {
     background-color: $interface-lemon;
     border-color: $interface-lemon;
 
