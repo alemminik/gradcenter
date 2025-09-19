@@ -3,6 +3,7 @@
 @use "./fonts/font-tokens.scss" as *;
 @use "./base/index.scss" as *;
 @use "./ui-kit/index.scss" as *;
+@use "./mixins/adaptive-value.scss" as *;
 
 $container-padding: 20px;
 $container-width: 1244px;
@@ -247,6 +248,7 @@ body {
 
 .hero {
   min-height: 720px;
+  @include adaptive-value(min-height, 720, 574, 1);
   display: flex;
 
   &__container {
@@ -256,7 +258,7 @@ body {
   &__breadcrumbs {
     margin: 0;
     padding: 0;
-    margin-bottom: 64px;
+    @include adaptive-value(margin-bottom, 64, 32, 1);
     display: flex;
     align-items: center;
     gap: 2px;
@@ -330,11 +332,9 @@ body {
   &__title {
     color: $text-white;
     max-width: 1130px;
-    margin: 76px 0 32px;
-
-    &--small {
-      max-width: 600px;
-    }
+    @include adaptive-value(margin-bottom, 32, 27, 1);
+    @include adaptive-value(margin-top, 76, 38, 1);
+    @include adaptive-value(font-size, 52, 32, 1);
 
     span {
       color: $text-lemon;
@@ -2661,14 +2661,4 @@ body {
   }
 }
 
-@media (min-width: 1650px) {
-  .hero {
-    &__container {
-      position: relative;
-    }
-    &__media-wrapper {
-      top: calc(-1 * var(--header-height));
-      right: -80px;
-    }
-  }
-}
+@import "./breakpoints/breakpoints.scss";
