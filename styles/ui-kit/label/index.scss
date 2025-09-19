@@ -5,6 +5,9 @@
   @include font(text-m-evolv);
   color: $text-white;
 
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: rgba($interface-white, 0.2);
   border-radius: 8px;
   padding: 8px 16px;
