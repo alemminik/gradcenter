@@ -1,0 +1,19 @@
+@media (min-width: 1650px) {
+  .hero {
+    &__container {
+      position: relative;
+    }
+    &__media-wrapper {
+      top: calc(-1 * var(--header-height));
+      right: -80px;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .hero {
+    &__desc {
+      font-weight: 400;
+    }
+  }
+}
