@@ -50,17 +50,15 @@
       flex-direction: column;
     }
 
-    .ui-input-label {
+    &__label {
       font-weight: 500;
     }
 
-    .ui-input {
+    &__input {
       height: 60px;
-    }
 
-    .ui-input-wrapper:last-child {
-      .ui-input {
-        min-height: 134px;
+      &--large {
+        height: 134px;
       }
     }
   }
@@ -79,11 +77,6 @@
   }
 
   .contact {
-    &__inner {
-      @include adaptive-value(padding-top, 80, 52, 1);
-      @include adaptive-value(padding-bottom, 80, 52, 1);
-    }
-
     &__title {
       font-weight: 400;
     }
@@ -93,7 +86,7 @@
       flex: auto;
     }
 
-    .ui-button {
+    &__submit-button {
       width: 100%;
     }
   }
