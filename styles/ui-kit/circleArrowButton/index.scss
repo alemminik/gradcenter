@@ -25,7 +25,8 @@
     transition: 0.3s;
   }
 
-  &--active {
+  &--active,
+  &._active {
     background-color: $interface-black;
 
     &::after {
@@ -34,13 +35,15 @@
     }
   }
 
-  &:hover,
-  &.hovered {
-    background-color: $interface-lemon;
-    border-color: $interface-lemon;
+  @media (min-width: 800px) {
+    &:hover,
+    &.hovered {
+      background-color: $interface-lemon;
+      border-color: $interface-lemon;
 
-    &::after {
-      background-color: $interface-black;
+      &::after {
+        background-color: $interface-black;
+      }
     }
   }
 

@@ -34,31 +34,40 @@
           <nav class="header__nav">
             <ul class="header__nav-list">
               <li class="header__nav-item">
-                <a
-                  class="header__nav-link"
-                  href="#"
-                >
-                  <img
-                    class="header__nav-home-icon"
-                    src="/img/icons/home.svg"
-                    alt="Главная"
-                  />
-                  <span>главная</span>
-                </a>
+                <div class="header__nav-item-inner">
+                  <a
+                    class="header__nav-link"
+                    href="#"
+                  >
+                    <img
+                      class="header__nav-home-icon"
+                      src="/img/icons/home.svg"
+                      alt="Главная"
+                    />
+                    <span>главная</span>
+                  </a>
+                </div>
               </li>
               <li class="header__nav-item">
-                <a
-                  class="header__nav-link"
-                  href="#"
-                >
-                  <span>услуги</span>
+                <div class="header__nav-item-inner">
+                  <a
+                    class="header__nav-link"
+                    href="#"
+                  >
+                    <span>услуги</span>
+                  </a>
                   <img
+                    data-accordion-icon
                     class="header__nav-item-arrow"
                     src="/img/icons/white-arrow-down.svg"
                     alt="Arrow"
+                    data-accordion-control
                   />
-                </a>
-                <div class="header__submenu">
+                </div>
+                <div
+                  class="header__submenu"
+                  data-accordion-body
+                >
                   <ul class="header__submenu-list">
                     <li class="header__submenu-item">
                       <a
@@ -117,18 +126,25 @@
                 </div>
               </li>
               <li class="header__nav-item">
-                <a
-                  class="header__nav-link"
-                  href="#"
-                >
-                  <span>Контакты</span>
+                <div class="header__nav-item-inner">
+                  <a
+                    class="header__nav-link"
+                    href="#"
+                  >
+                    <span>Контакты</span>
+                  </a>
                   <img
+                    data-accordion-icon
                     class="header__nav-item-arrow"
                     src="/img/icons/white-arrow-down.svg"
                     alt="Arrow"
+                    data-accordion-control
                   />
-                </a>
-                <div class="header__submenu">
+                </div>
+                <div
+                  class="header__submenu"
+                  data-accordion-body
+                >
                   <ul class="header__submenu-list">
                     <li class="header__submenu-item">
                       <a
@@ -187,18 +203,25 @@
                 </div>
               </li>
               <li class="header__nav-item">
-                <a
-                  class="header__nav-link"
-                  href="#"
-                >
-                  <span>пресс-центр</span>
+                <div class="header__nav-item-inner">
+                  <a
+                    class="header__nav-link"
+                    href="#"
+                  >
+                    <span>пресс-центр</span>
+                  </a>
                   <img
+                    data-accordion-icon
                     class="header__nav-item-arrow"
                     src="/img/icons/white-arrow-down.svg"
                     alt="Arrow"
+                    data-accordion-control
                   />
-                </a>
-                <div class="header__submenu">
+                </div>
+                <div
+                  class="header__submenu"
+                  data-accordion-body
+                >
                   <ul class="header__submenu-list">
                     <li class="header__submenu-item">
                       <a
@@ -257,6 +280,17 @@
                 </div>
               </li>
             </ul>
+            <div class="header__schedule _mobile">
+              <div class="header__phone">
+                <img
+                  class="header__phone-icon"
+                  src="/img/decor/whitePhone.svg"
+                  alt="phone"
+                />
+                <span class="header__phone-text">8 (812) 245-36-69</span>
+              </div>
+              <span class="header__schedule-text">08:00 - 22:00, без выходных </span>
+            </div>
           </nav>
           <div class="header__info">
             <div class="header__schedule">
@@ -275,6 +309,13 @@
               data-micromodal-trigger="modal-1"
             >
               Заказать звонок
+            </button>
+            <button class="header__burger burger">
+              <div class="burger__lines">
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+                <span class="burger__line"></span>
+              </div>
             </button>
           </div>
         </div>
@@ -647,7 +688,11 @@
           <div class="swiper recent-posts__slider">
             <div class="swiper-wrapper recent-posts__wrapper">
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-1.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-1.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-1.jpg"
@@ -691,7 +736,11 @@
                 </div>
               </article>
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-2.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-2.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-2.jpg"
@@ -734,7 +783,11 @@
                 </div>
               </article>
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-1.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-1.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-1.jpg"
@@ -778,7 +831,11 @@
                 </div>
               </article>
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-1.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-1.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-1.jpg"
@@ -822,7 +879,11 @@
                 </div>
               </article>
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-2.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-2.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-2.jpg"
@@ -865,7 +926,11 @@
                 </div>
               </article>
               <article class="swiper-slide recent-post">
-                <a class="recent-post__img-wrapper" data-fslightbox="recent-posts" href="/img/content/recent-posts-img-1.jpg">
+                <a
+                  class="recent-post__img-wrapper"
+                  data-fslightbox="recent-posts"
+                  href="/img/content/recent-posts-img-1.jpg"
+                >
                   <img
                     class="recent-post__img"
                     src="/img/content/recent-posts-img-1.jpg"
@@ -917,7 +982,7 @@
     <footer class="footer">
       <div class="footer__container">
         <div class="footer__main">
-          <ul class="footer__main-list footer-list">
+          <ul class="footer__main-list footer-list _desktop">
             <li class="footer-list__item">
               <h4 class="footer-list__title">Градостроительный консалтинг</h4>
               <ul class="footer-list__sublist footer-sublist">
@@ -1204,9 +1269,297 @@
               </div>
             </li>
           </ul>
+          <ul class="footer__main-list footer-list _mobile">
+            <li class="footer-list__item footer-contact">
+              <div class="footer-contact__row">
+                <div class="footer-contact__info">
+                  <span class="footer-contact__phone">+7 812 245-36-69</span>
+                  <span class="footer-contact__mail">info@cgpspb.ru</span>
+                </div>
+
+                <address class="footer-contact__address">
+                  г. Санкт-Петербург,<br />Ленинский пр., д. 160, оф. 222
+                </address>
+              </div>
+              <div class="footer-contact__row">
+                <div class="footer-contact__schedule">
+                  <div class="footer-contact__time">9.00—18.00</div>
+                  <div class="footer-contact__days">
+                    <span>Пн.</span>
+                    <span class="footer-contact__line"></span>
+                    <span>Пт.</span>
+                  </div>
+                </div>
+                <ul class="footer-contact__socials">
+                  <li class="footer-contact__social">
+                    <a
+                      class="footer-contact__social-link"
+                      href="#"
+                    >
+                      <img
+                        class="footer-contact__social-icon"
+                        src="/img/icons/vk.svg"
+                        alt="Vk"
+                      />
+                    </a>
+                  </li>
+                  <li class="footer-contact__social">
+                    <a
+                      class="footer-contact__social-link"
+                      href="#"
+                    >
+                      <img
+                        class="footer-contact__social-icon"
+                        src="/img/icons/tg.svg"
+                        alt="Tg"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-contact__row">
+                <button class="ui-button ui-button--fill footer-contact__btn">Написать нам</button>
+                <button class="ui-button ui-button--outline footer-contact__btn">
+                  Заказать звонок
+                </button>
+              </div>
+            </li>
+            <li class="footer-list__item">
+              <h4 class="footer-list__title">Градостроительный консалтинг</h4>
+              <ul class="footer-list__sublist footer-sublist">
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Юрист по земельным вопросам
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Оформление прав на земельные участки
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Судебные споры по недвижимости
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Сбор ИРД для проектирования
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Градостроительный анализ
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-list__item">
+              <h4 class="footer-list__title">Работы на объектах культурного наследия</h4>
+              <ul class="footer-list__sublist footer-sublist">
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Обследование объектов культурного наследия
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Проведение государственной историко-культурной экспертизы
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Проектирование реставрации
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Юридическое сопровождение в области охраны
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Согласование работ в зонах охраны
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Комплекс реставрационных работ
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-list__item">
+              <h4 class="footer-list__title">сопровождение строительства</h4>
+              <ul class="footer-list__sublist footer-sublist">
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Разрешение на строительство
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Согласование инвестпроектов
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Разрешение на ввод в эксплуатацию
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Кадастровые работы
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Легализация самостроя
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Сопровождение проектов в органах власти
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-list__item">
+              <h4 class="footer-list__title">Проектирование и экспертиза</h4>
+              <ul class="footer-list__sublist footer-sublist">
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Обследование зданий и сооружений
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Комплексное проектирование
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Судебная строительно-техническая экспертиза
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Негосударственная экспертиза проектной документации
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Разработка проектов планировки и межевания
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="footer-list__item">
+              <h4 class="footer-list__title">Благоустройство и некапитальные объекты</h4>
+              <ul class="footer-list__sublist footer-sublist">
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Проектирование проектов благоустройства
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Согласование некапитальных объектов
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Размещение нестационарных торговых объектов
+                  </a>
+                </li>
+                <li class="footer-sublist__item">
+                  <a
+                    class="footer-sublist__link"
+                    href="#"
+                  >
+                    Проектирование ограждений, автостоянок, спортивных и детских площадок
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
         <div class="footer__bottom">
-          <p class="footer__copyright">© 2024 Grad Center. Все права защищены.</p>
+          <p class="footer__copyright">2025 © Центр Градостроительных Проектов</p>
           <ul class="footer__footer-bottom-menu footer-bottom-menu">
             <li class="footer-bottom-menu__item">
               <a
@@ -1288,7 +1641,7 @@
           </header>
           <div class="modal__content">
             <span class="modal__pre-title">есть вопросы?</span>
-            <h2 class="modal__title">Заказать звонок<br />👋</h2>
+            <h2 class="modal__title"><span>Заказать звонок</span><br />👋</h2>
             <p class="modal__desc">
               Мы будем рады проконсультировать вас! Заполните форму, и наш менеджер свяжется с вами,
               чтобы ответить на все вопросы
@@ -1299,18 +1652,18 @@
             >
               <div class="modal__form-labels">
                 <label class="ui-input-wrapper">
-                  <span class="ui-input-label">Ваше имя</span>
+                  <span class="ui-input-label modal__label">Ваше имя</span>
                   <input
-                    class="ui-input"
+                    class="ui-input modal__input"
                     type="text"
                     placeholder="Введите ваше имя"
                   />
                 </label>
                 <label class="ui-input-wrapper">
-                  <span class="ui-input-label">Номер телефона</span>
+                  <span class="ui-input-label modal__label">Номер телефона</span>
                   <input
                     data-mask
-                    class="ui-input"
+                    class="ui-input modal__input"
                     type="text"
                     placeholder="+7 (___) ___ __ __"
                   />
@@ -1318,7 +1671,7 @@
               </div>
               <div class="modal__submit-block">
                 <button
-                  class="ui-button ui-button--fill ui-button--arrow-right"
+                  class="ui-button ui-button--fill ui-button--arrow-right modal__btn"
                   type="submit"
                 >
                   Отправить
