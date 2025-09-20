@@ -22,10 +22,12 @@
     transition: 0.3s;
   }
 
-  &:hover,
-  &.hovered {
-    &::before {
-      transform: rotate(45deg);
+  @media (min-width: 800px) {
+    &:hover,
+    &.hovered {
+      &::before {
+        transform: rotate(45deg);
+      }
     }
   }
 }

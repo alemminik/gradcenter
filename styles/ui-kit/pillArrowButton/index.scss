@@ -21,9 +21,11 @@
     background-size: contain;
   }
 
-  &:hover {
-    background-color: $interface-lemon;
-    border-color: $interface-lemon;
+  @media (min-width: 800px) {
+    &:hover {
+      background-color: $interface-lemon;
+      border-color: $interface-lemon;
+    }
   }
 
   &--back {

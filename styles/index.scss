@@ -9,7 +9,7 @@ $container-padding: 20px;
 $container-width: 1244px;
 
 body {
-  &.modal-open {
+  &.locked {
     overflow: hidden;
   }
 }
@@ -101,7 +101,8 @@ body {
   top: 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.27);
-  padding: 12px 0;
+  @include adaptive-value("padding-top", 12, 8, 1);
+  @include adaptive-value("padding-bottom", 12, 8, 1);
   backdrop-filter: blur(42px);
   background: radial-gradient(
     233.7% 138.69% at 0.9% 2.98%,
@@ -116,8 +117,12 @@ body {
   }
 
   &__logo-wrapper {
-    width: 126px;
-    height: 72px;
+    @include adaptive-value("width", 126, 100, 1);
+    @include adaptive-value("height", 72, 56, 1);
+  }
+
+  &__burger {
+    display: none;
   }
 
   &__logo {
@@ -129,34 +134,46 @@ body {
   &__nav-list {
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
   }
 
   &__nav-item {
     position: relative;
+    @include adaptive-value("width", 140, 60, 1);
   }
 
-  &__nav-link {
-    @include font(menu);
-    color: #fff;
-    width: 140px;
-    height: 56px;
+  &__nav-item-inner {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    @include adaptive-value("height", 56, 40, 1);
+    @include adaptive-value("gap", 8, 6, 1);
+  }
+
+  &__nav-link {
+    display: flex;
+    @include adaptive-value("gap", 8, 6, 1);
+    justify-content: center;
+    align-items: center;
+    @include font(menu);
+    color: #fff;
+    @include adaptive-value("font-size", 14, 12, 1);
+    white-space: nowrap;
   }
 
   &__nav-home-icon {
-    width: 16px;
-    height: 16px;
+    @include adaptive-value("width", 16, 12, 1);
+    @include adaptive-value("height", 16, 12, 1);
   }
 
   &__nav-item-arrow {
-    width: 16px;
-    height: 16px;
+    @include adaptive-value("width", 16, 12, 1);
+    @include adaptive-value("height", 16, 12, 1);
     transition: 0.3s;
 
-    &.active {
+    &.active,
+    &._active {
       transform: rotate(180deg);
     }
   }
@@ -172,6 +189,7 @@ body {
     background: $interface-white;
     border-radius: 12px;
     overflow: hidden;
+    z-index: 1;
 
     &.active {
       opacity: 1;
@@ -198,8 +216,10 @@ body {
     background-color: #fff;
     transition: 0.2s;
 
-    &:hover {
-      background-color: #eee;
+    @media (min-width: 800px) {
+      &:hover {
+        background-color: #eee;
+      }
     }
   }
 
@@ -211,35 +231,40 @@ body {
   &__info {
     display: flex;
     align-items: center;
-    gap: 40px;
+    @include adaptive-value("gap", 40, -50, 1);
   }
 
   &__schedule {
     display: flex;
     flex-direction: column;
     gap: 6px;
+
+    &._mobile {
+      display: none;
+    }
   }
 
   &__phone {
     display: flex;
-    gap: 8px;
+    @include adaptive-value("gap", 8, 6, 1);
     align-items: center;
   }
 
   &__phone-icon {
-    width: 24px;
-    height: 24px;
+    @include adaptive-value("width", 24, 16, 1);
+    @include adaptive-value("height", 24, 16, 1);
   }
 
   &__phone-text {
     @include font(sh-m-bold);
     color: #fff;
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 
   &__schedule-text {
     font-family: $Evolventa;
     font-weight: 400;
-    font-size: 12px;
+    @include adaptive-value("font-size", 12, 11, 1);
     line-height: 133%;
     text-align: right;
     color: #fff;
@@ -275,7 +300,7 @@ body {
 
   &__media-wrapper {
     position: absolute;
-    top: 0;
+    @include adaptive-value("top", 0, 150, 1);
     right: 0;
     z-index: 0;
     mask-image: linear-gradient(to right, black 90%, transparent 100%),
@@ -284,8 +309,8 @@ body {
       linear-gradient(to top, black 90%, transparent 100%),
       radial-gradient(ellipse at center, black 80%, transparent 100%);
     mask-composite: intersect;
-    width: 706px;
-    height: 816px;
+    @include adaptive-value("width", 706, 393, 1);
+    @include adaptive-value("height", 816, 285, 1);
 
     img,
     video {
@@ -326,14 +351,14 @@ body {
   &__content {
     position: relative;
     z-index: 1;
-    padding-top: 64px;
+    @include adaptive-value("padding-top", 64, 38, 1);
   }
 
   &__title {
     color: $text-white;
     max-width: 1130px;
     @include adaptive-value(margin-bottom, 32, 27, 1);
-    @include adaptive-value(margin-top, 76, 38, 1);
+    @include adaptive-value(margin-top, 76, 0, 1);
     @include adaptive-value(font-size, 52, 32, 1);
 
     span {
@@ -537,11 +562,13 @@ body {
       z-index: 4;
     }
 
-    &:hover {
-      transform: scale(1.15);
+    @media (min-width: 800px) {
+      &:hover {
+        transform: scale(1.15);
 
-      &::before {
-        background-color: rgba(#000, 0);
+        &::before {
+          background-color: rgba(#000, 0);
+        }
       }
     }
   }
@@ -555,9 +582,11 @@ body {
 }
 
 .ecosystem {
-  border-radius: 52px 52px 0 0;
-  padding: 80px 98px;
-  margin-top: -80px;
+  @include adaptive-value("border-top-left-radius", 52, 32, 1);
+  @include adaptive-value("border-top-right-radius", 52, 32, 1);
+  @include adaptive-value("padding-top", 80, 38, 1);
+  @include adaptive-value("padding-bottom", 80, 43, 1);
+  @include adaptive-value("margin-top", -80, -70, 1);
   background-color: $interface-white;
   position: relative;
   z-index: 1;
@@ -583,8 +612,9 @@ body {
   &__title {
     @include font(h1);
     margin: 0;
-    margin-bottom: 32px;
+    @include adaptive-value("margin-bottom", 32, 24, 1);
     max-width: 501px;
+    @include adaptive-value("font-size", 52, 42, 1);
   }
 
   &__text {
@@ -596,13 +626,14 @@ body {
 
   &__counters {
     display: flex;
-    gap: 80px;
+    @include adaptive-value("gap", 80, 50, 1);
     align-items: center;
   }
 
   &__grid {
     flex: 1;
-    gap: 24px;
+    row-gap: 24px;
+    @include adaptive-value("column-gap", 24, 14, 1);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -621,6 +652,13 @@ body {
       pointer-events: none;
     }
   }
+
+  &__tag {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    @include adaptive-value("padding-right", 32, 20, 1);
+    @include adaptive-value("padding-left", 32, 20, 1);
+  }
 }
 
 .counters {
@@ -633,7 +671,7 @@ body {
   &__number-prefix {
     font-family: $Evolventa;
     font-weight: 400;
-    font-size: 80px;
+    @include adaptive-value("font-size", 80, 52, 1);
     line-height: 90%;
     letter-spacing: 0.02em;
     text-transform: uppercase;
@@ -644,6 +682,7 @@ body {
     @include font(text-m);
     color: $text-dark-grey;
     margin: 0;
+    @include adaptive-value("font-size", 16, 13, 1);
     margin-top: 16px;
   }
 }
@@ -1066,10 +1105,12 @@ body {
       transition: 0.2s;
     }
 
-    &:hover {
-      &::after,
-      &::before {
-        opacity: 1;
+    @media (min-width: 800px) {
+      &:hover {
+        &::after,
+        &::before {
+          opacity: 1;
+        }
       }
     }
 
@@ -1256,8 +1297,10 @@ body {
     padding: 12px 24px;
     transition: 0.2s;
 
-    &:hover {
-      background-color: #eee;
+    @media (min-width: 800px) {
+      &:hover {
+        background-color: #eee;
+      }
     }
   }
 
@@ -1492,9 +1535,11 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 
-    &:hover {
-      .portfolio-link__icon {
-        transform: translateX(3px);
+    @media (min-width: 800px) {
+      &:hover {
+        .portfolio-link__icon {
+          transform: translateX(3px);
+        }
       }
     }
   }
@@ -1730,6 +1775,10 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
 
+  &._mobile {
+    display: none;
+  }
+
   &__item {
     width: 33.33%;
     padding: 0 40px;
@@ -1779,8 +1828,10 @@ body {
     color: $interface-grey-stroke;
     transition: 0.2s;
 
-    &:hover {
-      color: #fff;
+    @media (min-width: 800px) {
+      &:hover {
+        color: #fff;
+      }
     }
   }
 }
@@ -1861,9 +1912,11 @@ body {
   &__social {
     transition: 0.3s;
 
-    &:hover {
-      transform: translateY(-2px);
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    @media (min-width: 800px) {
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+      }
     }
   }
 
@@ -1902,9 +1955,11 @@ body {
       transition: 0.3s;
     }
 
-    &:hover {
-      &::after {
-        width: 100%;
+    @media (min-width: 800px) {
+      &:hover {
+        &::after {
+          width: 100%;
+        }
       }
     }
   }
@@ -1912,43 +1967,46 @@ body {
 
 .centers-contacts {
   &__inner {
-    padding: 80px 0;
+    @include adaptive-value("padding-top", 80, 38, 1);
+    @include adaptive-value("padding-bottom", 80, 38, 1);
     display: flex;
     justify-content: space-between;
   }
 
   &__main {
-    padding-top: 97px;
-    flex: 0 1 504px;
+    @include adaptive-value("padding-top", 97, 46, 1);
+    flex: 0 0 504px;
   }
 
   &__desc {
     @include font(sh-s);
     color: $text-black;
+    @include adaptive-value("font-size", 12, 11, 1);
 
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
   }
 
   &__title {
     @include font(h1);
     color: $text-black;
+    @include adaptive-value("font-size", 52, 42, 1);
 
     margin: 0;
-    margin-bottom: 56px;
+    @include adaptive-value("margin-bottom", 56, 48, 1);
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    @include adaptive-value("gap", 32, 16, 1);
     padding: 0;
     margin: 0;
   }
 
   &__item {
     display: flex;
-    gap: 12px;
+    @include adaptive-value("gap", 12, 8, 1);
 
     &:nth-child(2) {
       .centers-contacts__item-value {
@@ -2121,12 +2179,14 @@ body {
   background-size: 100%;
   background-position: top center;
 
-  &.hovered {
-    transform: translateY(-4px);
-    background-size: 107%;
+  @media (min-width: 800px) {
+    &.hovered {
+      transform: translateY(-4px);
+      background-size: 107%;
 
-    .direction__btn {
-      transform: translateX(3px);
+      .direction__btn {
+        transform: translateX(3px);
+      }
     }
   }
 
@@ -2193,7 +2253,7 @@ body {
     transition: 0.3s;
     max-width: 456px;
     width: 95%;
-    border-radius: 24px;
+    @include adaptive-value("border-radius", 24, 20, 1);
     overflow: hidden;
     box-shadow: 0 6px 30px 0 rgba(0, 0, 0, 0.1);
     margin: auto 0;
@@ -2218,34 +2278,41 @@ body {
   }
 
   &__header-img {
-    width: 456px;
-    height: 288px;
+    max-width: 456px;
+    max-height: 288px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: center;
   }
 
   &__close {
     position: absolute;
-    top: 17px;
-    right: 17px;
+    @include adaptive-value("top", 17, 12, 1);
+    @include adaptive-value("right", 17, 12, 1);
     cursor: pointer;
     z-index: 1;
     padding: 0;
   }
 
   &__close-icon {
-    width: 40px;
-    height: 40px;
+    @include adaptive-value("width", 40, 32, 1);
+    @include adaptive-value("height", 40, 32, 1);
   }
 
   &__content {
     background-color: #fff;
-    padding: 32px 40px;
+    @include adaptive-value("padding-top", 32, 20, 1);
+    @include adaptive-value("padding-right", 40, 37, 1);
+    @include adaptive-value("padding-bottom", 32, 20, 1);
+    @include adaptive-value("padding-left", 40, 37, 1);
   }
 
   &__pre-title {
     @include font(sh-s);
     color: $text-black;
+    @include adaptive-value("font-size", 12, 13, 1);
+    display: inline-block;
 
     margin: 0;
     margin-bottom: 8px;
@@ -2254,9 +2321,10 @@ body {
   &__title {
     @include font(h2);
     color: $text-black;
+    @include adaptive-value("font-size", 42, 32, 1);
 
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 13, 1);
   }
 
   &__desc {
@@ -2264,6 +2332,7 @@ body {
     color: $interface-dark;
     margin: 0;
     margin-bottom: 24px;
+    @include adaptive-value("font-size", 14, 13, 1);
   }
 
   &__form {
@@ -2275,20 +2344,37 @@ body {
   &__form-labels {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    margin-bottom: 32px;
+    @include adaptive-value("gap", 16, 15, 1);
+    @include adaptive-value("margin-bottom", 32, 20, 1);
   }
 
   &__submit-block {
     display: flex;
     align-items: center;
-    gap: 16px;
+    @include adaptive-value("gap", 16, 10, 1);
   }
 
   &__form-note {
     @include font(text-xxs);
     color: $text-grey;
     max-width: 180px;
+    margin: 0;
+  }
+
+  &__label {
+    @include adaptive-value("font-size", 14, 13, 1);
+  }
+
+  &__input {
+    @include adaptive-value("height", 48, 43, 1);
+    @include adaptive-value("border-radius", 12, 10, 1);
+    @include adaptive-value("padding-left", 16, 10, 1);
+    @include adaptive-value("padding-right", 16, 10, 1);
+    @include adaptive-value("font-size", 12, 10, 1);
+
+    &::placeholder {
+      @include adaptive-value("font-size", 12, 10, 1);
+    }
   }
 }
 
@@ -2380,7 +2466,6 @@ body {
 
 .case-body {
   overflow: hidden;
-  padding: 0;
   padding: 32px 0 0 152px;
   opacity: 0;
 
@@ -2603,8 +2688,10 @@ body {
       color: $text-grey;
     }
 
-    &:hover {
-      background-color: #eee;
+    @media (min-width: 800px) {
+      &:hover {
+        background-color: #eee;
+      }
     }
   }
 }
@@ -2666,13 +2753,75 @@ body {
       }
     }
 
-    &:hover {
-      background-color: #eee;
+    @media (min-width: 800px) {
+      &:hover {
+        background-color: #eee;
+      }
     }
 
     span {
       min-width: 18px;
       display: inline-block;
+    }
+  }
+}
+
+.burger {
+  position: relative;
+  z-index: 5;
+  width: 24px;
+  height: 24px;
+  padding: 5px 3px;
+  cursor: pointer;
+
+  &__lines {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__line {
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+    background-color: #fff;
+    position: absolute;
+    transition: 0.3s;
+
+    &:nth-child(1) {
+      transform: translate(-50%, 0);
+      left: 50%;
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+    }
+
+    &:nth-child(3) {
+      left: 50%;
+      top: 100%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.active {
+    .burger__line {
+      &:nth-child(1) {
+        transform: translate(-50%, -50%) rotate(45deg);
+        top: 50%;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+      }
+
+      &:nth-child(3) {
+        transform: translate(-50%, -50%) rotate(-45deg);
+        top: 50%;
+      }
     }
   }
 }
