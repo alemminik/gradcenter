@@ -10,6 +10,35 @@
   }
 }
 
+@media (max-width: 850px) {
+  .licenses {
+    &__list {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .solve {
+    &__label {
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .solve {
+    &__btn {
+      display: flex;
+    }
+
+    &__labels {
+      display: inline-flex;
+      flex-direction: column;
+    }
+  }
+}
+
 @media (max-width: 420px) {
   .hero {
     &__desc {
