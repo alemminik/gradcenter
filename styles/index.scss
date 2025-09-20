@@ -1003,7 +1003,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     @include adaptive-value(margin-bottom, 48, 40, 1);
-    gap: 16px;
+    gap: 16px 0;
   }
 
   &__title {
