@@ -27,19 +27,25 @@
     transition: transform 0.2s;
   }
 
-  &.hovered {
-    background-color: $interface-lemon;
-    border-color: $interface-lemon;
+  @media (min-width: 800px) {
+    &.hovered {
+      background-color: $interface-lemon;
+      border-color: $interface-lemon;
+    }
   }
 
-  &:hover {
-    background-color: color.adjust($interface-lemon, $lightness: -10%);
-    border-color: color.adjust($interface-lemon, $lightness: -10%);
+  @media (min-width: 800px) {
+    &:hover {
+      background-color: color.adjust($interface-lemon, $lightness: -10%);
+      border-color: color.adjust($interface-lemon, $lightness: -10%);
+    }
   }
 
-  &:hover {
-    &::after {
-      transform: rotate(45deg);
+  @media (min-width: 800px) {
+    &:hover {
+      &::after {
+        transform: rotate(45deg);
+      }
     }
   }
 

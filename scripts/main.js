@@ -13,6 +13,25 @@ function getVerticalPadding(element) {
   };
 }
 
+function onClickOutside(element, callback, extraIgnore = []) {
+  function handler(event) {
+    const ignoreElements = [element, ...extraIgnore];
+    const isClickInsideIgnored = ignoreElements.some((el) => el.contains(event.target));
+
+    if (!isClickInsideIgnored) {
+      callback(event);
+    }
+  }
+
+  document.addEventListener("click", handler);
+
+  return () => document.removeEventListener("click", handler);
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const animateNumberLogic = () => {
     const countersSection = document.getElementById("counters-section");
@@ -64,6 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const servicesGridLogic = () => {
     const servicesGrid = document.querySelector(".ecosystem__grid");
     const serviceButtons = document.querySelectorAll(".ecosystem__tag");
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 860) return;
 
     if (servicesGrid) {
       servicesGrid.addEventListener("mousemove", (e) => {
@@ -265,6 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!submenu || !arrowIcon) return;
 
       link.addEventListener("mouseenter", () => {
+        if (window.innerWidth <= 1010) return;
         submenu.classList.add("active");
         arrowIcon.classList.add("active");
       });
@@ -343,8 +366,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalLogic = () => {
     MicroModal.init({
       awaitOpenAnimation: true,
-      onShow: () => document.body.classList.add("modal-open"),
-      onClose: () => document.body.classList.remove("modal-open"),
+      onShow: () => document.body.classList.add("locked"),
+      onClose: () => document.body.classList.remove("locked"),
     });
   };
 
@@ -410,24 +433,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const casesAccordionsLogic = () => {
-    const cases = document.querySelectorAll(".case");
-    if (!cases.length) return;
+  const casesAccordionsLogic = async () => {
+    const accordions = document.querySelectorAll("[data-accordion]");
+    if (!accordions.length) return;
 
-    cases.forEach((caseItem) => {
-      const arrow = caseItem.querySelector(".case__icon");
-      const control = caseItem.querySelector(".case__control");
-      const body = caseItem.querySelector(".case-body");
+    accordions.forEach((accordion) => {
+      const arrow = accordion.querySelector("[data-accordion-icon]");
+      const control = accordion.querySelector("[data-accordion-control]");
+      const body = accordion.querySelector("[data-accordion-body]");
+      if (!arrow || !body || !control) return;
+
       body.style.transition = "0s";
-      const offsetHeight = caseItem.offsetHeight;
+      const offsetHeight = getComputedStyle(body).height;
       const { paddingTop, paddingBottom } = getVerticalPadding(body);
       body.style.paddingTop = "0px";
       body.style.paddingBottom = "0px";
       body.style.maxHeight = "0px";
       body.style.opacity = "1";
-      body.style.transition = "0.7s";
-
-      if (!arrow || !body || !control) return;
+      setTimeout(() => {
+        body.style.transition = "0.7s";
+      }, 0);
 
       control.addEventListener("mouseenter", () => {
         arrow.classList.add("hovered");
@@ -438,30 +463,32 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       control.addEventListener("click", () => {
-        const wasOpen = caseItem.classList.contains("isOpen");
+        const wasOpen = accordion.classList.contains("isOpen");
 
         if (wasOpen) {
           body.style.maxHeight = "0px";
-          caseItem.classList.remove("isOpen");
-          arrow.classList.remove("ui-circle-arrow-button--active");
+          accordion.classList.remove("isOpen");
+          arrow.classList.remove("_active");
           body.style.paddingTop = "0px";
           body.style.paddingBottom = "0px";
         } else {
-          body.style.maxHeight = `${offsetHeight}px`;
-          caseItem.classList.add("isOpen");
-          arrow.classList.add("ui-circle-arrow-button--active");
+          body.style.maxHeight = `${offsetHeight}`;
+          accordion.classList.add("isOpen");
+          arrow.classList.add("_active");
           body.style.paddingTop = `${paddingTop}px`;
           body.style.paddingBottom = `${paddingBottom}px`;
         }
 
-        cases.forEach((otherCase) => {
-          if (otherCase === caseItem) return;
+        accordions.forEach((otherAccordion) => {
+          if (otherAccordion === accordion) return;
 
-          const otherArrow = otherCase.querySelector(".case__icon");
-          const otherBody = otherCase.querySelector(".case-body");
+          const otherArrow = otherAccordion.querySelector("[data-accordion-icon]");
+          const otherBody = otherAccordion.querySelector("[data-accordion-body]");
+          if (!otherArrow || !otherBody) return;
+
           otherBody.style.maxHeight = "0px";
-          otherCase.classList.remove("isOpen");
-          otherArrow?.classList.remove("ui-circle-arrow-button--active");
+          otherAccordion.classList.remove("isOpen");
+          otherArrow.classList.remove("_active");
           otherBody.style.paddingTop = "0px";
           otherBody.style.paddingBottom = "0px";
         });
@@ -469,7 +496,40 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const burgerMenuLogic = () => {
+    const burger = document.querySelector(".burger");
+    const headerNav = document.querySelector(".header__nav");
+    const headerNavItems = document.querySelectorAll(".header__nav-item");
+    const windowWidth = window.innerWidth;
+
+    if (!burger || !headerNav || !headerNavItems.length) return;
+
+    if (windowWidth <= 1010) {
+      headerNavItems.forEach((item) => {
+        item.setAttribute("data-accordion", "");
+      });
+    }
+
+    onClickOutside(
+      headerNav,
+      () => {
+        if (!headerNav.classList.contains("active")) return;
+        headerNav.classList.remove("active");
+        burger.classList.remove("active");
+        document.body.classList.remove("locked");
+      },
+      [burger],
+    );
+
+    burger.addEventListener("click", () => {
+      burger.classList.toggle("active");
+      headerNav.classList.toggle("active");
+      document.body.classList.toggle("locked");
+    });
+  };
+
   const main = () => {
+    burgerMenuLogic();
     casesAccordionsLogic();
     animateNumberLogic();
     servicesGridLogic();
