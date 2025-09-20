@@ -833,7 +833,7 @@ body {
 }
 
 .contacts-wrapper {
-  margin-top: -80px;
+  @include adaptive-value(margin-top, -80, -52, 1);
   position: relative;
   z-index: 1;
   background-color: #fff;
@@ -848,7 +848,8 @@ body {
   }
 
   &__inner {
-    padding: 80px 0;
+    @include adaptive-value(padding-top, 80, 52, 1);
+    @include adaptive-value(padding-bottom, 80, 52, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
@@ -864,13 +865,14 @@ body {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 64px;
+    @include adaptive-value(font-size, 52, 28, 1);
+    @include adaptive-value(margin-bottom, 64, 32, 1);
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    @include adaptive-value(gap, 24, 40, 1);
   }
 
   &__item {
@@ -908,7 +910,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    margin-bottom: 32px;
+    @include adaptive-value(margin-bottom, 32, 18, 1);
 
     label {
       flex: 1 1 30%;
@@ -922,6 +924,7 @@ body {
 
   &__submit-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 16px;
   }
@@ -930,6 +933,7 @@ body {
     @include font(text-xxs);
     color: $text-grey;
     flex: 0 0 230px;
+    margin: 0;
   }
 }
 
@@ -960,8 +964,8 @@ body {
     margin: 0;
 
     &--high {
-      min-height: 48px;
-      margin-bottom: 12px;
+      @include adaptive-value(min-height, 48, 1, 1);
+      @include adaptive-value(margin-bottom, 12, 33, 1);
     }
   }
 
