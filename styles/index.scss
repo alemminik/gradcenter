@@ -864,13 +864,15 @@ body {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 64px;
+    @include adaptive-value(font-size, 52, 28, 1);
+    @include adaptive-value(margin-bottom, 64, 32, 1);
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
+    @include adaptive-value(gap, 24, 40, 1);
   }
 
   &__item {
@@ -908,7 +910,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    margin-bottom: 32px;
+    @include adaptive-value(margin-bottom, 32, 18, 1);
 
     label {
       flex: 1 1 30%;
@@ -922,6 +924,7 @@ body {
 
   &__submit-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 16px;
   }
@@ -930,6 +933,7 @@ body {
     @include font(text-xxs);
     color: $text-grey;
     flex: 0 0 230px;
+    margin: 0;
   }
 }
 
@@ -961,7 +965,9 @@ body {
 
     &--high {
       min-height: 48px;
+      @include adaptive-value(min-height, 48, 1, 1);
       margin-bottom: 12px;
+      @include adaptive-value(margin-bottom, 12, 33, 1);
     }
   }
 

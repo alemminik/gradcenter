@@ -44,6 +44,26 @@
       height: auto;
     }
   }
+
+  .contact {
+    &__form-labels {
+      flex-direction: column;
+    }
+
+    .ui-input-label {
+      font-weight: 500;
+    }
+
+    .ui-input {
+      height: 60px;
+    }
+
+    .ui-input-wrapper:last-child {
+      .ui-input {
+        min-height: 134px;
+      }
+    }
+  }
 }
 
 @media (max-width: 500px) {
@@ -55,6 +75,36 @@
     &__labels {
       display: inline-flex;
       flex-direction: column;
+    }
+  }
+
+  .contact {
+    &__inner {
+      @include adaptive-value(padding-top, 80, 52, 1);
+      @include adaptive-value(padding-bottom, 80, 52, 1);
+    }
+
+    &__title {
+      font-weight: 400;
+    }
+
+    &__form-note {
+      width: 100%;
+      flex: auto;
+    }
+
+    .ui-button {
+      width: 100%;
+    }
+  }
+
+  .card {
+    &__img {
+      display: none;
+    }
+
+    &__pre-title {
+      font-weight: 400;
     }
   }
 }
