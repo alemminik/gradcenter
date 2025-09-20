@@ -872,7 +872,7 @@ body {
 }
 
 .contacts-wrapper {
-  margin-top: -80px;
+  @include adaptive-value(margin-top, -80, -52, 1);
   position: relative;
   z-index: 1;
   background-color: #fff;
@@ -887,7 +887,8 @@ body {
   }
 
   &__inner {
-    padding: 80px 0;
+    @include adaptive-value(padding-top, 80, 52, 1);
+    @include adaptive-value(padding-bottom, 80, 52, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
@@ -903,13 +904,14 @@ body {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 64px;
+    @include adaptive-value(font-size, 52, 28, 1);
+    @include adaptive-value(margin-bottom, 64, 32, 1);
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    @include adaptive-value(gap, 24, 40, 1);
   }
 
   &__item {
@@ -947,7 +949,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 24px;
-    margin-bottom: 32px;
+    @include adaptive-value(margin-bottom, 32, 18, 1);
 
     label {
       flex: 1 1 30%;
@@ -961,6 +963,7 @@ body {
 
   &__submit-block {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 16px;
   }
@@ -969,6 +972,7 @@ body {
     @include font(text-xxs);
     color: $text-grey;
     flex: 0 0 230px;
+    margin: 0;
   }
 }
 
@@ -999,8 +1003,8 @@ body {
     margin: 0;
 
     &--high {
-      min-height: 48px;
-      margin-bottom: 12px;
+      @include adaptive-value(min-height, 48, 1, 1);
+      @include adaptive-value(margin-bottom, 12, 33, 1);
     }
   }
 
@@ -1023,8 +1027,10 @@ body {
   border-radius: 52px 52px 0 0;
   padding-top: 80px;
   background-color: #fff;
-  padding: 80px;
-  margin-top: -80px;
+  padding: 80px 0;
+  @include adaptive-value(padding-top, 80, 52, 1);
+  @include adaptive-value(padding-bottom, 80, 52, 1);
+  @include adaptive-value(margin-top, -80, -52, 1);
   position: relative;
   z-index: 1;
 }
@@ -1039,7 +1045,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 48px;
+    @include adaptive-value(margin-bottom, 48, 40, 1);
+    gap: 16px 0;
   }
 
   &__title {
@@ -1047,6 +1054,8 @@ body {
     color: $text-black;
     margin: 0;
     max-width: 592px;
+    @include adaptive-value(font-size, 42, 26, 1);
+    @include adaptive-value(letter-spacing, -1.2, 0.77, 1);
   }
 
   &__desc {
@@ -1115,10 +1124,13 @@ body {
     }
 
     &__link {
+      display: inline-block;
       width: 100%;
       height: 100%;
-      display: inline-block;
-      padding: 32px 40px;
+      @include adaptive-value(padding-top, 32, 24, 1);
+      @include adaptive-value(padding-bottom, 32, 24, 1);
+      @include adaptive-value(padding-left, 40, 20, 1);
+      @include adaptive-value(padding-right, 40, 20, 1);
     }
 
     &__icon {
@@ -1141,6 +1153,7 @@ body {
       margin: 0;
       max-width: 246px;
       text-wrap: balance;
+      @include adaptive-value(font-size, 24, 20, 1);
     }
   }
 }
@@ -2399,7 +2412,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    @include adaptive-value(gap, 32, 14, 1);
     margin-bottom: 48px;
   }
 
@@ -2414,14 +2427,15 @@ body {
 
   &__control {
     display: flex;
-    gap: 32px;
+    @include adaptive-value(gap, 32, 20, 1);
     text-align: left;
     cursor: pointer;
   }
 
   &__img-wrapper {
-    width: 120px;
-    height: 120px;
+    flex-shrink: 0;
+    @include adaptive-value(width, 120, 123, 1);
+    @include adaptive-value(height, 120, 123, 1);
     border-radius: 12px;
     overflow: hidden;
   }
@@ -2430,6 +2444,11 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__header-wrapper {
+    display: flex;
+    gap: 32px;
   }
 
   &__header {
@@ -2441,15 +2460,17 @@ body {
     @include font(text-m-evolv);
     color: $text-black;
     margin: 0;
-    margin-bottom: 8px;
+    @include adaptive-value(margin-bottom, 8, 12, 1);
+    @include adaptive-value(font-size, 16, 13, 1);
   }
 
   &__title {
     @include font(h3);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value(margin-bottom, 16, 12, 1);
     max-width: 1014px;
+    @include adaptive-value(font-size, 28, 18, 1);
   }
 
   &__tags {
@@ -2461,6 +2482,15 @@ body {
 
   &__icon {
     align-self: center;
+    flex-shrink: 0;
+    @include adaptive-value(padding, 12, 8, 1);
+    @include adaptive-value(width, 48, 32, 1);
+    @include adaptive-value(height, 48, 32, 1);
+
+    &::after {
+      @include adaptive-value(width, 18, 16, 1);
+      @include adaptive-value(height, 24, 16, 1);
+    }
   }
 }
 
