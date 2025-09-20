@@ -2504,6 +2504,8 @@ body {
     color: $text-black;
     margin: 0;
     margin-bottom: 32px;
+    @include adaptive-value(margin-bottom, 32, 18, 1);
+    @include adaptive-value(font-size, 20, 14, 1);
   }
 
   &__list {
@@ -2519,6 +2521,7 @@ body {
     &::marker {
       @include font(h3);
       color: $text-black;
+      @include adaptive-value(font-size, 28, 18, 1);
     }
   }
 
@@ -2527,12 +2530,13 @@ body {
     color: $text-black;
     margin: 0;
     margin-bottom: 16px;
+    @include adaptive-value(font-size, 28, 18, 1);
   }
 
   &__sublist {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    @include adaptive-value(gap, 16, 12, 1);
     padding-left: 15px;
   }
 
@@ -2542,6 +2546,7 @@ body {
     color: $text-black;
     margin: 0;
     max-width: 716px;
+    @include adaptive-value(font-size, 16, 14, 1);
 
     &::before {
       content: "";
@@ -2557,14 +2562,15 @@ body {
 }
 
 .case-address {
-  margin-bottom: 40px;
+  @include adaptive-value(margin-bottom, 40, 20, 1);
 
   &__subtext {
     display: inline-block;
     @include font(text-m-evolv);
     color: $text-black;
     margin: 0;
-    margin-bottom: 8px;
+    @include adaptive-value(margin-bottom, 8, 12, 1);
+    @include adaptive-value(font-size, 16, 13, 1);
   }
 
   &__text {
@@ -2572,6 +2578,7 @@ body {
     @include font(text-l);
     color: $text-black;
     margin: 0;
+    @include adaptive-value(font-size, 24, 16, 1);
   }
 }
 
@@ -2582,7 +2589,7 @@ body {
   &__wrapper {
     display: flex;
     align-items: center;
-    gap: 24px;
+    @include adaptive-value(gap, 24, 10, 1);
   }
 
   &__slide {
@@ -2601,6 +2608,12 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  &__btn-prev, &__btn-next {
+    flex-shrink: 0;
+    @include adaptive-value(height, 56, 30, 1);
+    @include adaptive-value(width, 88, 44, 1);
   }
 }
 
