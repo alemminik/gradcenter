@@ -36,6 +36,24 @@
       }
     }
   }
+
+  .case {
+    &__content {
+      padding-left: 150px;
+    }
+
+    &-slider__slide {
+      max-width: none;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .case {
+    &__content {
+      padding-left: 147px;
+    }
+  }
 }
 
 @media (max-width: 600px) {
@@ -66,6 +84,16 @@
   .case {
     &__control {
       flex-direction: column;
+    }
+
+    &__content {
+      padding-left: 0;
+    }
+  }
+
+  .case-body {
+    &__list {
+      @include adaptive-value(padding-left, 26, 21, 1);
     }
   }
 }

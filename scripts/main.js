@@ -243,9 +243,16 @@ document.addEventListener("DOMContentLoaded", () => {
         direction: "horizontal",
 
         loop: false,
-        slidesPerView: 2,
-        spaceBetween: 24,
+        slidesPerView: 1,
+        spaceBetween: 0,
         grabCursor: true,
+        ceneteredSlides: true,
+        breakpoints: {
+          801: {
+            slidesPerView: 2,
+            spaceBetween: 24,
+          }
+        },
 
         navigation: {
           nextEl: nextEl,
