@@ -62,6 +62,12 @@
       }
     }
   }
+
+  .case {
+    &__control {
+      flex-direction: column;
+    }
+  }
 }
 
 @media (max-width: 500px) {
@@ -98,6 +104,15 @@
 
     &__pre-title {
       font-weight: 400;
+    }
+  }
+
+  .case {
+    &__tags {
+      display: inline-flex;
+      min-width: 173px;
+      flex-direction: column;
+      gap: 12px;
     }
   }
 }
