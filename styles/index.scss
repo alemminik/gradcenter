@@ -984,8 +984,10 @@ body {
   border-radius: 52px 52px 0 0;
   padding-top: 80px;
   background-color: #fff;
-  padding: 80px;
-  margin-top: -80px;
+  padding: 80px 0;
+  @include adaptive-value(padding-top, 80, 52, 1);
+  @include adaptive-value(padding-bottom, 80, 52, 1);
+  @include adaptive-value(margin-top, -80, -52, 1);
   position: relative;
   z-index: 1;
 }
@@ -1000,7 +1002,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 48px;
+    @include adaptive-value(margin-bottom, 48, 40, 1);
+    gap: 16px 0;
   }
 
   &__title {
@@ -1008,6 +1011,8 @@ body {
     color: $text-black;
     margin: 0;
     max-width: 592px;
+    @include adaptive-value(font-size, 42, 26, 1);
+    @include adaptive-value(letter-spacing, -1.2, 0.77, 1);
   }
 
   &__desc {
@@ -1074,10 +1079,13 @@ body {
     }
 
     &__link {
+      display: inline-block;
       width: 100%;
       height: 100%;
-      display: inline-block;
-      padding: 32px 40px;
+      @include adaptive-value(padding-top, 32, 24, 1);
+      @include adaptive-value(padding-bottom, 32, 24, 1);
+      @include adaptive-value(padding-left, 40, 20, 1);
+      @include adaptive-value(padding-right, 40, 20, 1);
     }
 
     &__icon {
@@ -1100,6 +1108,7 @@ body {
       margin: 0;
       max-width: 246px;
       text-wrap: balance;
+      @include adaptive-value(font-size, 24, 20, 1);
     }
   }
 }

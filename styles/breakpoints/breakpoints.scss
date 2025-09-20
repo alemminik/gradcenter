@@ -18,6 +18,26 @@
   }
 }
 
+@media (max-width: 800px) {
+  .service {
+    .option {
+      &__link {
+        display: inline-flex;
+        flex-direction: column;
+      }
+
+      &__num {
+        margin: 0;
+      }
+
+      &__title {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+    }
+  }
+}
+
 @media (max-width: 600px) {
   .solve {
     &__label {
