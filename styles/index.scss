@@ -332,7 +332,7 @@ body {
     position: absolute;
     width: 609px;
     height: 609px;
-    background-color: rgba(lightgray, 0.5);
+    background-color: rgba(lightgray, 0.15);
     mix-blend-mode: overlay;
     filter: blur(37px);
     border-radius: 50%;
@@ -349,6 +349,7 @@ body {
     &--1 {
       right: -130px;
       top: -45px;
+      display: none;
     }
   }
 
