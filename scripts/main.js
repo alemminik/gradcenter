@@ -206,9 +206,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const recentSlider = new Swiper(slider, {
       direction: "horizontal",
-      slidesPerView: 3,
+      slidesPerView: 1,
       spaceBetween: 24,
       grabCursor: true,
+      breakpoints: {
+        391: {
+          slidesPerView: 1.1,
+        },
+        466: {
+          slidesPerView: 1.2,
+        },
+        705: {
+          slidesPerView: 1.7,
+          spaceBetween: 18,
+        },
+        796: {
+          spaceBetween: 24,
+          slidesPerView: 2.1,
+        },
+        1171: {
+          slidesPerView: 3,
+          spaceBetween: 24,
+        }
+      },
     });
   };
 
