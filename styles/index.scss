@@ -1692,6 +1692,16 @@ body {
     flex-shrink: 0;
     @include adaptive-value("font-size", 16, 14, 1);
   }
+
+  &__slider-wrapper {
+    margin-bottom: 100px;
+  }
+
+  &__control {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+  }
 }
 
 .recent-post {

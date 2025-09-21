@@ -229,6 +229,10 @@ document.addEventListener("DOMContentLoaded", () => {
           spaceBetween: 24,
         },
       },
+      navigation: {
+        nextEl: ".recent-posts-slider__btn-next",
+        prevEl: ".recent-posts-slider__btn-prev",
+      },
     });
   };
 
