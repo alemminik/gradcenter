@@ -252,6 +252,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
+  const directionsSwiperLogic = () => {
+    const slider = document.querySelector(".directions__swiper");
+    if (!slider) return;
+
+    const directionsSlider = new Swiper(slider, {
+      direction: "horizontal",
+      loop: false,
+      slidesPerView: 1.15,
+      grabCursor: true,
+      spaceBetween: 12,
+
+      breakpoints: {
+        390: {
+          slidesPerView: 1.2,
+          spaceBetween: 18,
+        },
+      },
+    });
+  };
+
   const casesSwiperLogic = () => {
     const sliders = document.querySelectorAll(".case-slider");
     if (!sliders.length) return;
@@ -273,7 +293,7 @@ document.addEventListener("DOMContentLoaded", () => {
           801: {
             slidesPerView: 2,
             spaceBetween: 24,
-          }
+          },
         },
 
         navigation: {
@@ -554,6 +574,7 @@ document.addEventListener("DOMContentLoaded", () => {
     headerHeightLogic();
     listenersLogic();
     choicesLogic();
+    directionsSwiperLogic();
   };
 
   main();
