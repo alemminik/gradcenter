@@ -174,6 +174,35 @@
       }
     }
   }
+
+  .directions {
+    &__grid {
+      gap: 12px;
+      grid-template-rows: repeat(3, minmax(439px, auto));
+    }
+
+    &__card {
+      &:nth-child(3),
+      &:nth-child(4) {
+        grid-column: span 3;
+        grid-row: 2;
+
+        .direction__content {
+          min-height: 196px;
+        }
+      }
+
+      &:nth-child(5) {
+        grid-column: span 3;
+        grid-row: 3;
+        background-image: url("../img/decor/direction-bg-5.jpg");
+
+        .direction__content {
+          min-height: 196px;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 1010px) {
@@ -264,6 +293,62 @@
       padding-left: 0;
     }
   }
+
+  .portfolio {
+    &__inner {
+      flex-direction: column;
+      gap: 45px;
+    }
+
+    &__gallery {
+      align-items: start;
+      margin: 0;
+      flex-direction: column;
+      gap: 49px;
+    }
+
+    &__gallery-number-wrapper {
+      margin: 0;
+    }
+
+    &__gallery-number {
+      font-size: 84px;
+      line-height: 150%;
+      letter-spacing: -0.03em;
+
+      span {
+        color: $text-lemon;
+      }
+    }
+
+    &__gallery-number-desc {
+      font-size: 16px;
+      line-height: 150%;
+    }
+  }
+
+  .photos-stack {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    flex-wrap: wrap;
+
+    &__img-wrapper {
+      position: static;
+      width: 110px !important;
+      height: 90px !important;
+
+      &::before {
+        display: none;
+      }
+
+      &:last-child {
+        display: none;
+      }
+    }
+  }
 }
 
 @media (max-width: 860px) {
@@ -343,6 +428,48 @@
   .case {
     &__content {
       padding-left: 147px;
+    }
+  }
+
+  .directions {
+    &__swiper {
+      display: block;
+      margin-bottom: 32px;
+    }
+
+    &__swiper-slide {
+      min-height: 420px;
+      flex-direction: column;
+      display: flex;
+    }
+
+    &__grid {
+      display: none;
+    }
+
+    &__link {
+      width: 100%;
+      height: 58px;
+    }
+  }
+
+  .direction {
+    height: 100%;
+    flex: 1 1 100%;
+
+    &__btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+    }
+
+    &__content {
+      min-height: 169px !important;
+      padding-bottom: 11px;
+    }
+
+    &__desc {
+      line-height: 120%;
     }
   }
 }
@@ -517,6 +644,13 @@
       br {
         display: none;
       }
+    }
+  }
+
+  .portfolio {
+    &__btn {
+      height: 56px;
+      width: 100%;
     }
   }
 }
