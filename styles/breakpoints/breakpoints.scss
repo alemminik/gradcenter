@@ -400,6 +400,46 @@
   .centers-contacts {
     display: none;
   }
+
+  .page-splitting {
+    .container {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+
+  .sidebar-wrapper {
+    position: static;
+    flex: initial;
+    align-self: stretch;
+  }
+
+  .topics {
+    max-width: 100%;
+  }
+
+  .resources {
+    max-width: 100%;
+  }
+
+  .post {
+    gap: 14px;
+
+    &__img,
+    &__img-wrapper {
+      width: 100%;
+      height: 250px;
+      max-height: 250px;
+      max-width: 360px;
+      min-width: 0;
+      object-fit: cover;
+      aspect-ratio: initial;
+    }
+
+    &__img-wrapper {
+      align-self: stretch;
+    }
+  }
 }
 
 @media (max-width: 800px) {
@@ -444,8 +484,21 @@
 
     &__img-wrapper {
       flex: initial;
-      @include adaptive-value(width, 294, 170, 1);
-      @include adaptive-value(height, 294, 170, 1);
+    }
+
+    &__img,
+    &__img-wrapper {
+      width: 100%;
+      height: 250px;
+      max-height: 250px;
+      max-width: 360px;
+      min-width: 0;
+      object-fit: cover;
+      aspect-ratio: initial;
+    }
+
+    &__img-wrapper {
+      align-self: stretch;
     }
   }
 

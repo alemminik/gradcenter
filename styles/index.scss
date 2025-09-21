@@ -53,13 +53,14 @@ body {
 
   .container {
     display: flex;
-    gap: 64px;
+    @include adaptive-value("gap", 64, 0, 1);
     align-items: flex-start;
   }
 }
 
 .sidebar-wrapper {
   flex: 0 0 360px;
+  @include adaptive-value("flex-basis", 360, 130, 1);
   position: sticky;
   top: 20px;
 }
@@ -67,7 +68,7 @@ body {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 48px;
+  @include adaptive-value("gap", 48, 24, 1);
   padding-top: 3px;
 }
 
@@ -1194,14 +1195,16 @@ body {
   @include adaptive-value(gap, 32, 20, 1);
 
   &__img-wrapper {
-    flex: 0 0 294px;
-    border-radius: 24px;
+    flex: 0 1 294px;
     overflow: hidden;
+    max-height: 294px;
+    min-width: 210px;
   }
 
   &__img {
     width: 100%;
-    height: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 24px;
   }
 
   &__content {
@@ -1214,22 +1217,23 @@ body {
     @include font(text-s);
     color: $text-dark-grey;
     margin: 0;
-    @include adaptive-value(margin-bottom, 16, 12, 1);
+    @include adaptive-value(margin-bottom, 16, 8, 1);
   }
 
   &__title {
     @include font(h4);
     color: $text-black;
     margin: 0;
-    @include adaptive-value(margin-bottom, 12, 10, 1);
-    @include adaptive-value(font-size, 24, 20, 1);
+    @include adaptive-value(margin-bottom, 12, 8, 1);
+    @include adaptive-value(font-size, 24, 18, 1);
   }
 
   &__desc {
     @include font(text-m);
     color: $text-main;
     margin: 0;
-    @include adaptive-value(margin-bottom, 24, 18, 1);
+    @include adaptive-value("font-size", 16, 13, 1);
+    @include adaptive-value(margin-bottom, 24, 8, 1);
   }
 }
 
@@ -1240,20 +1244,25 @@ body {
     @include font(sh-s);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
+    @include adaptive-value("font-size", 12, 11, 1);
   }
 
   &__content {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 24px 16px;
-    border-radius: 12px;
+    @include adaptive-value("gap", 16, 12, 1);
+    @include adaptive-value("padding-top", 24, 16, 1);
+    @include adaptive-value("padding-bottom", 24, 16, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
+    @include adaptive-value("border-radius", 12, 10, 1);
     background-color: $interface-lemon;
   }
 
   &__item {
     @include font(text-m);
+    @include adaptive-value("font-size", 16, 14, 1);
     color: $text-main;
   }
 }
@@ -1311,13 +1320,14 @@ body {
     @include font(sh-s);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
+    @include adaptive-value("font-size", 12, 11, 1);
   }
 
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    @include adaptive-value("gap", 10, 8, 1);
     padding: 0;
     margin: 0;
   }
@@ -1328,9 +1338,12 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-radius: 12px;
+    @include adaptive-value("border-radius", 12, 10, 1);
     background-color: $interface-grey-bg;
-    padding: 12px 24px;
+    @include adaptive-value("padding-top", 24, 16, 1);
+    @include adaptive-value("padding-bottom", 24, 16, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
     transition: 0.2s;
 
     @media (min-width: 800px) {
@@ -1344,12 +1357,20 @@ body {
     @include font(text-m);
     font-weight: 500;
     line-height: 163%;
+    @include adaptive-value("font-size", 16, 14, 1);
     margin: 0;
     max-width: 232px;
   }
 
   &__btn {
     flex-shrink: 0;
+    @include adaptive-value("width", 48, 40, 1);
+    @include adaptive-value("height", 48, 40, 1);
+
+    &::before {
+      @include adaptive-value("width", 24, 20, 1);
+      @include adaptive-value("height", 24, 20, 1);
+    }
   }
 }
 
@@ -2675,20 +2696,29 @@ body {
     @include font(text-m);
     color: $text-black;
     border: none;
-    padding: 12px 16px;
+    @include adaptive-value("border-radius", 12, 8, 1);
+    @include adaptive-value("padding-top", 12, 8, 1);
+    @include adaptive-value("padding-bottom", 12, 8, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
     margin: 0;
     background-color: $interface-grey-bg;
     transition: 0.2s;
+    @include adaptive-value("font-size", 16, 14, 1);
 
     &::placeholder {
       color: $text-grey;
+      @include adaptive-value("font-size", 16, 14, 1);
     }
   }
 
   &__inner {
     border: 1px solid $interface-grey-stroke;
-    border-radius: 12px;
-    padding: 12px 16px;
+    @include adaptive-value("border-radius", 12, 8, 1);
+    @include adaptive-value("padding-top", 12, 8, 1);
+    @include adaptive-value("padding-bottom", 12, 8, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
     vertical-align: top;
     display: inline-block;
     background-color: $interface-grey-bg;
@@ -2719,6 +2749,7 @@ body {
   &__item {
     @include font(text-m);
     color: $text-black;
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 
   &__placeholder {
@@ -2756,11 +2787,16 @@ body {
 
   &__item--choice {
     cursor: pointer;
-    padding: 12px 16px;
     background-color: $interface-grey-bg;
     color: $text-black;
     @include font(text-m);
     transition: 0.2s;
+    @include adaptive-value("font-size", 16, 14, 1);
+    @include adaptive-value("border-radius", 12, 8, 1);
+    @include adaptive-value("padding-top", 12, 8, 1);
+    @include adaptive-value("padding-bottom", 12, 8, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
 
     &.is-selected {
       color: $text-grey;
