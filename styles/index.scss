@@ -712,6 +712,7 @@ body {
   &__text-wrapper {
     max-width: 925px;
     padding-bottom: 32px;
+    @include adaptive-value("padding-bottom", 32, 24, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
@@ -723,28 +724,33 @@ body {
     @include font(sh-s);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 8, 1);
   }
 
   &__title {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    @include adaptive-value(font-size, 52, 30, 1);
+    @include adaptive-value(font-size, 52, 28, 1);
     @include adaptive-value(letter-spacing, -1.5, -0.96, 1);
   }
 
   &__block {
-    padding: 32px 0;
+    @include adaptive-value("padding-top", 32, 16, 1);
+    @include adaptive-value("padding-bottom", 32, 16, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
   &__list {
     display: flex;
     align-items: center;
-    gap: 23px;
+    @include adaptive-value("gap", 23, 12, 1);
     margin: 0;
     padding: 0;
+  }
+
+  &__item {
+    max-width: 395px;
   }
 }
 
@@ -753,22 +759,21 @@ body {
     @include font(h2);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
     @include adaptive-value(font-size, 42, 26, 1);
     @include adaptive-value(letter-spacing, -1.2, 0.77, 1);
   }
 
   &__desc {
     @include font(sh-m);
+    @include adaptive-value("font-size", 16, 14, 1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 24px;
+    @include adaptive-value("margin-bottom", 24, 18, 1);
     max-width: 811px;
   }
 
   &__img-wrapper {
-    display: flex;
-    gap: 24px;
     user-select: none;
   }
 }
@@ -883,11 +888,12 @@ body {
 }
 
 .contacts-wrapper {
-  @include adaptive-value(margin-top, -80, -52, 1);
+  @include adaptive-value("border-top-left-radius", 52, 32, 1);
+  @include adaptive-value("border-top-right-radius", 52, 32, 1);
+  @include adaptive-value("margin-top", -80, -70, 1);
   position: relative;
   z-index: 1;
   background-color: #fff;
-  border-radius: 52px 52px 0 0;
 }
 
 .contact {
@@ -898,17 +904,18 @@ body {
   }
 
   &__inner {
-    @include adaptive-value(padding-top, 80, 52, 1);
-    @include adaptive-value(padding-bottom, 80, 52, 1);
+    @include adaptive-value(padding-top, 80, 38, 1);
+    @include adaptive-value(padding-bottom, 80, 30, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
   &__pre-title {
     display: inline-block;
     @include font(sh-s);
+    @include adaptive-value("font-size", 12, 11, 1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 8, 1);
   }
 
   &__title {
@@ -916,13 +923,13 @@ body {
     color: $text-black;
     margin: 0;
     @include adaptive-value(font-size, 52, 28, 1);
-    @include adaptive-value(margin-bottom, 64, 32, 1);
+    @include adaptive-value(margin-bottom, 64, 28, 1);
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    @include adaptive-value(gap, 24, 40, 1);
+    @include adaptive-value(gap, 24, 22, 1);
   }
 
   &__item {
@@ -936,6 +943,7 @@ body {
     margin: 0 auto;
     position: relative;
     cursor: grab;
+    @include adaptive-value("height", 564, 311, 1);
 
     canvas {
       filter: grayscale(1);
@@ -959,7 +967,7 @@ body {
   &__form-labels {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 18, 1);
     @include adaptive-value(margin-bottom, 32, 18, 1);
 
     label {
@@ -976,7 +984,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
+    @include adaptive-value("gap", 16, 12, 1);
   }
 
   &__form-note {
@@ -1015,7 +1023,7 @@ body {
 
     &--high {
       @include adaptive-value(min-height, 48, 1, 1);
-      @include adaptive-value(margin-bottom, 12, 33, 1);
+      @include adaptive-value(margin-bottom, 12, 8, 1);
     }
   }
 
@@ -1023,10 +1031,12 @@ body {
     @include font(text-xl);
     color: $text-black;
     margin: 0;
+    @include adaptive-value("font-size", 28, 24, 1);
 
     &--gray {
       @include font(text-l);
       color: $text-main;
+      @include adaptive-value("font-size", 24, 20, 1);
     }
   }
 }

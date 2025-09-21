@@ -475,7 +475,7 @@
     &__img-wrapper {
       flex: initial;
       @include adaptive-value(width, 294, 170, 1);
-      @include adaptive-value(height, 294, 170, 1); 
+      @include adaptive-value(height, 294, 170, 1);
     }
   }
 }
@@ -568,6 +568,12 @@
   .case-body {
     &__list {
       @include adaptive-value(padding-left, 26, 21, 1);
+    }
+  }
+
+  .contact {
+    &__submit-button {
+      height: 58px;
     }
   }
 }
