@@ -226,7 +226,6 @@
 
 @media (max-width: 1010px) {
   .header {
-    overflow: hidden;
     &__nav {
       position: absolute;
       top: 0;
@@ -818,6 +817,16 @@
       max-height: 100%;
     }
   }
+
+  .portfolio {
+    background-image: url("../img/decor/portfolio-img-m.png");
+  }
+
+  .footer {
+    &::after {
+      top: -20%;
+    }
+  }
 }
 
 @media (max-width: 455px) {
@@ -912,6 +921,17 @@
     &__btn {
       width: 43px;
       height: 43px;
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .recent-posts {
+    &__slider {
+      &::before,
+      &::after {
+        display: none;
+      }
     }
   }
 }

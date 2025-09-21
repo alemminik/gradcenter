@@ -32,17 +32,6 @@ body {
   min-height: 100vh;
 }
 
-:has(.page-splitting) {
-  .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    transform: translateY(var(--header-height));
-    margin-top: calc(-1 * var(--header-height));
-  }
-}
-
 .page-splitting {
   z-index: 1;
   position: relative;
@@ -365,6 +354,7 @@ body {
     position: relative;
     z-index: 1;
     @include adaptive-value("padding-top", 64, 38, 1);
+    margin-bottom: 120px;
   }
 
   &__title {
@@ -819,8 +809,8 @@ body {
 
     &:nth-child(1),
     &:nth-child(3) {
-      left: 157px;
-      top: 297px;
+      @include adaptive-value("left", 157, 0, 1);
+      @include adaptive-value("top", 297, 0, 1);
     }
 
     &:nth-child(2),
@@ -828,7 +818,7 @@ body {
       width: 860px;
       height: 860px;
       left: 0;
-      top: -156px;
+      @include adaptive-value("top", -156, 0, 1);
     }
   }
 
@@ -1649,14 +1639,15 @@ body {
 }
 
 .recent-posts {
-  margin-bottom: 80px;
+  .container {
+    overflow: hidden;
+    @include adaptive-value("padding-bottom", 80, 50, 1);
+  }
 
   &__slider {
     position: relative;
     padding: 45px;
     margin: -45px;
-    padding-right: 0;
-    margin-right: 0;
 
     &::before,
     &::after {
@@ -1684,21 +1675,22 @@ body {
   &__title-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    @include adaptive-value("gap", 15, 10, 1);
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    @include adaptive-value("margin-bottom", 32, 20, 1);
   }
 
   &__title {
     @include font(h1);
     color: $interface-black;
     margin: 0;
-    @include adaptive-value(font-size, 52, 44, 1);
+    @include adaptive-value(font-size, 52, 28, 1);
   }
 
   &__link {
     flex-shrink: 0;
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 }
 
