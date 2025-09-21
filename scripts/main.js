@@ -227,7 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
         1171: {
           slidesPerView: 3,
           spaceBetween: 24,
-        }
+        },
       },
       navigation: {
         nextEl: ".recent-posts-slider__btn-next",
@@ -427,6 +427,17 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!header) return;
 
     document.documentElement.style.setProperty("--header-height", header.offsetHeight + "px");
+
+    const isPageSplitting = document.querySelector(".page-splitting");
+    const scrollLogic = () => {
+      if (isPageSplitting) {
+        header.style.top = `-${window.scrollY}px`;
+      }
+    };
+    window.addEventListener("scroll", scrollLogic);
+    if (isPageSplitting) {
+      header.style.top = `-${window.scrollY}px`;
+    }
   };
 
   const listenersLogic = () => {

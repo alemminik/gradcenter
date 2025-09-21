@@ -32,14 +32,6 @@ body {
   min-height: 100vh;
 }
 
-:has(.page-splitting) {
-  .header {
-    position: relative;
-    transform: translateY(var(--header-height));
-    margin-top: calc(-1 * var(--header-height));
-  }
-}
-
 .page-splitting {
   z-index: 1;
   position: relative;
@@ -47,7 +39,7 @@ body {
   @include adaptive-value("border-top-left-radius", 52, 32, 1);
   @include adaptive-value("border-top-right-radius", 52, 32, 1);
   @include adaptive-value("padding-top", 80, 38, 1);
-  @include adaptive-value("padding-bottom", 80, 43, 1);
+  @include adaptive-value("padding-bottom", 80, 38, 1);
   @include adaptive-value("margin-top", -80, -70, 1);
 
   .container {
@@ -300,6 +292,11 @@ body {
     span {
       color: $text-dark-grey;
     }
+
+    a,
+    span {
+      display: inline-block;
+    }
   }
 
   &__media-wrapper {
@@ -357,6 +354,7 @@ body {
     position: relative;
     z-index: 1;
     @include adaptive-value("padding-top", 64, 38, 1);
+    margin-bottom: 120px;
   }
 
   &__title {
@@ -380,21 +378,22 @@ body {
   &__info {
     display: flex;
     align-items: center;
-    gap: 32px;
+    @include adaptive-value("gap", 32, 16, 1);
     margin: 0;
     padding: 0;
-    margin-top: 64px;
+    @include adaptive-value("margin-top", 64, 32, 1);
+    flex-wrap: wrap;
   }
 
   &__info-item {
     display: flex;
     align-items: center;
-    gap: 8px;
+    @include adaptive-value("gap", 8, 6, 1);
   }
 
   &__info-icon {
-    width: 20px;
-    height: 20px;
+    @include adaptive-value("width", 20, 16, 1);
+    @include adaptive-value("height", 20, 16, 1);
   }
 
   &__info-text {
@@ -780,8 +779,8 @@ body {
 }
 
 .solve {
-  @include adaptive-value(padding-top, 80, 24, 1);
-  @include adaptive-value(padding-bottom, 80, 52, 1);
+  @include adaptive-value(padding-top, 80, 22, 1);
+  @include adaptive-value(padding-bottom, 80, 38, 1);
 
   &--consultation {
     max-width: 832px;
@@ -810,8 +809,8 @@ body {
 
     &:nth-child(1),
     &:nth-child(3) {
-      left: 157px;
-      top: 297px;
+      @include adaptive-value("left", 157, 0, 1);
+      @include adaptive-value("top", 297, 0, 1);
     }
 
     &:nth-child(2),
@@ -819,7 +818,7 @@ body {
       width: 860px;
       height: 860px;
       left: 0;
-      top: -156px;
+      @include adaptive-value("top", -156, 0, 1);
     }
   }
 
@@ -853,7 +852,7 @@ body {
     @include adaptive-value(border-radius, 40, 24, 1);
 
     &--consultation {
-      padding: 40px;
+      @include adaptive-value(padding, 40, 18, 1);
     }
 
     &::before {
@@ -1267,13 +1266,13 @@ body {
 }
 
 .news-slider {
-  max-width: 359px;
+  @include adaptive-value("max-width", 359, 130, 1);
 
   &__controls {
     display: flex;
     justify-content: space-between;
-    margin-top: 24px;
-    padding-bottom: 24px;
+    @include adaptive-value("margin-top", 24, 12, 1);
+    @include adaptive-value("padding-bottom", 24, 12, 1);
     border-bottom: 1px solid $interface-grey-stroke;
     align-items: center;
   }
@@ -1290,6 +1289,12 @@ body {
 
   &__img-wrapper {
     display: block;
+  }
+
+  &__btn-prev,
+  &__btn-next {
+    @include adaptive-value("width", 88, 60, 1);
+    @include adaptive-value("height", 56, 40, 1);
   }
 }
 
@@ -1409,7 +1414,7 @@ body {
     color: $text-black;
     margin: 0;
     margin-bottom: 24px;
-    @include adaptive-value(margin-bottom, 24, 16, 1);
+    @include adaptive-value(margin-bottom, 24, 14, 1);
     @include adaptive-value(font-size, 42, 26, 1);
     @include adaptive-value(letter-spacing, -1.2, 0.77, 1);
 
@@ -1419,18 +1424,18 @@ body {
   }
 
   &__img {
-    border-radius: 16px;
-    @include adaptive-value(margin-bottom, 40, 30, 1);
+    @include adaptive-value("border-radius", 16, 12, 1);
+    @include adaptive-value(margin-bottom, 40, 26, 1);
   }
 
   &__note {
     background-color: $interface-grey-bg;
-    border-radius: 24px;
+    @include adaptive-value("border-radius", 24, 16, 1);
     @include adaptive-value(margin-bottom, 40, 30, 1);
-    @include adaptive-value(padding-top, 32, 24, 1);
-    @include adaptive-value(padding-bottom, 32, 24, 1);
-    @include adaptive-value(padding-left, 40, 22, 1);
-    @include adaptive-value(padding-right, 40, 22, 1);
+    @include adaptive-value(padding-top, 32, 20, 1);
+    @include adaptive-value(padding-bottom, 32, 20, 1);
+    @include adaptive-value(padding-left, 40, 18, 1);
+    @include adaptive-value(padding-right, 40, 18, 1);
   }
 
   &__list {
@@ -1494,17 +1499,17 @@ body {
   }
 
   p {
-    @include adaptive-value(margin-bottom, 40, 30, 1);
+    @include adaptive-value(margin-bottom, 40, 22, 1);
   }
 
   p:has(+ p),
   p:has(+ .post-content__list) {
-    @include adaptive-value(margin-bottom, 16, 14, 1);
+    @include adaptive-value(margin-bottom, 16, 12, 1);
   }
 
   p:has(+ .post-content__note),
   p:has(+ .post-content__text--large-offset) {
-    @include adaptive-value(margin-bottom, 24, 18, 1);
+    @include adaptive-value(margin-bottom, 24, 16, 1);
   }
 
   *:last-child {
@@ -1515,7 +1520,7 @@ body {
 .links {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  @include adaptive-value("gap", 10, 6, 1);
   max-width: 359px;
   margin: 0;
   padding: 0;
@@ -1529,19 +1534,23 @@ body {
   }
 
   &__img {
-    height: 24px;
-    width: 24px;
+    @include adaptive-value("width", 24, 20, 1);
+    @include adaptive-value("height", 24, 20, 1);
   }
 
   &__text {
     display: inline-block;
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 }
 
 .link {
   display: flex;
-  gap: 16px;
-  padding: 12px 24px;
+  @include adaptive-value("gap", 16, 10, 1);
+  @include adaptive-value("padding-top", 12, 8, 1);
+  @include adaptive-value("padding-bottom", 12, 8, 1);
+  @include adaptive-value("padding-left", 24, 16, 1);
+  @include adaptive-value("padding-right", 24, 16, 1);
   justify-content: center;
   align-items: center;
 }
@@ -1554,17 +1563,22 @@ body {
     @include font(sh-s);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
+    @include adaptive-value("font-size", 12, 11, 1);
   }
 
   &__list {
     background-color: $interface-lemon;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    border-radius: 12px;
+    @include adaptive-value("gap", 16, 12, 1);
+    @include adaptive-value("border-radius", 12, 10, 1);
     margin: 0;
-    padding: 24px 16px;
+    @include adaptive-value("padding-top", 24, 16, 1);
+    @include adaptive-value("padding-bottom", 24, 16, 1);
+    @include adaptive-value("padding-left", 16, 12, 1);
+    @include adaptive-value("padding-right", 16, 12, 1);
+
     list-style-type: disc;
   }
 
@@ -1573,7 +1587,8 @@ body {
     color: $text-main;
     margin: 0;
     max-width: 290px;
-    margin-left: 17px;
+    @include adaptive-value("margin-left", 17, 16, 1);
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 }
 
@@ -1623,8 +1638,19 @@ body {
   }
 }
 
+.recent-posts-slider {
+  &__btn-prev,
+  &__btn-next {
+    @include adaptive-value(height, 50, 40, 1);
+    @include adaptive-value(width, 88, 66, 1);
+  }
+}
+
 .recent-posts {
-  margin-bottom: 80px;
+  .container {
+    overflow: hidden;
+    @include adaptive-value("padding-bottom", 80, 50, 1);
+  }
 
   &__slider {
     position: relative;
@@ -1657,31 +1683,32 @@ body {
   &__title-wrapper {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    @include adaptive-value("gap", 15, 10, 1);
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 32px;
+    @include adaptive-value("margin-bottom", 32, 20, 1);
   }
 
   &__title {
     @include font(h1);
     color: $interface-black;
     margin: 0;
-    @include adaptive-value(font-size, 52, 44, 1);
+    @include adaptive-value(font-size, 52, 28, 1);
   }
 
   &__link {
     flex-shrink: 0;
+    @include adaptive-value("font-size", 16, 14, 1);
   }
 
   &__slider-wrapper {
-    margin-bottom: 100px;
+    @include adaptive-value("margin-bottom", 35, 30, 1);
   }
 
   &__control {
     display: flex;
     justify-content: center;
-    gap: 100px;
+    @include adaptive-value("gap", 60, 40, 1);
   }
 }
 
