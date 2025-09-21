@@ -2049,7 +2049,7 @@ body.locked {
 }
 @media (max-width: 1284px) {
   .solve__inner {
-    padding: calc(18px + 62 * (100vw - 320px) / 964);
+    padding: calc(22px + 58 * (100vw - 320px) / 964);
   }
 }
 .solve__inner {
@@ -2065,7 +2065,7 @@ body.locked {
 }
 @media (max-width: 1284px) {
   .solve__inner--consultation {
-    padding: calc(18px + 22 * (100vw - 320px) / 964);
+    padding: calc(22px + 18 * (100vw - 320px) / 964);
   }
 }
 .solve__inner::before {
