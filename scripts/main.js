@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         loop: false,
         slidesPerView: 1,
-        spaceBetween: 0,
+        spaceBetween: 15,
         grabCursor: true,
         ceneteredSlides: true,
         breakpoints: {

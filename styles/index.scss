@@ -330,7 +330,7 @@ body {
     position: absolute;
     width: 609px;
     height: 609px;
-    background-color: rgba(lightgray, 0.5);
+    background-color: rgba(lightgray, 0.15);
     mix-blend-mode: overlay;
     filter: blur(37px);
     border-radius: 50%;
@@ -347,6 +347,7 @@ body {
     &--1 {
       right: -130px;
       top: -45px;
+      display: none;
     }
   }
 
@@ -710,6 +711,7 @@ body {
   &__text-wrapper {
     max-width: 925px;
     padding-bottom: 32px;
+    @include adaptive-value("padding-bottom", 32, 24, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
@@ -721,28 +723,33 @@ body {
     @include font(sh-s);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 8, 1);
   }
 
   &__title {
     @include font(h1);
     color: $text-black;
     margin: 0;
-    @include adaptive-value(font-size, 52, 30, 1);
+    @include adaptive-value(font-size, 52, 28, 1);
     @include adaptive-value(letter-spacing, -1.5, -0.96, 1);
   }
 
   &__block {
-    padding: 32px 0;
+    @include adaptive-value("padding-top", 32, 16, 1);
+    @include adaptive-value("padding-bottom", 32, 16, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
   &__list {
     display: flex;
     align-items: center;
-    gap: 23px;
+    @include adaptive-value("gap", 23, 12, 1);
     margin: 0;
     padding: 0;
+  }
+
+  &__item {
+    max-width: 395px;
   }
 }
 
@@ -751,22 +758,21 @@ body {
     @include font(h2);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 12, 1);
     @include adaptive-value(font-size, 42, 26, 1);
     @include adaptive-value(letter-spacing, -1.2, 0.77, 1);
   }
 
   &__desc {
     @include font(sh-m);
+    @include adaptive-value("font-size", 16, 14, 1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 24px;
+    @include adaptive-value("margin-bottom", 24, 18, 1);
     max-width: 811px;
   }
 
   &__img-wrapper {
-    display: flex;
-    gap: 24px;
     user-select: none;
   }
 }
@@ -881,11 +887,12 @@ body {
 }
 
 .contacts-wrapper {
-  @include adaptive-value(margin-top, -80, -52, 1);
+  @include adaptive-value("border-top-left-radius", 52, 32, 1);
+  @include adaptive-value("border-top-right-radius", 52, 32, 1);
+  @include adaptive-value("margin-top", -80, -70, 1);
   position: relative;
   z-index: 1;
   background-color: #fff;
-  border-radius: 52px 52px 0 0;
 }
 
 .contact {
@@ -896,17 +903,18 @@ body {
   }
 
   &__inner {
-    @include adaptive-value(padding-top, 80, 52, 1);
-    @include adaptive-value(padding-bottom, 80, 52, 1);
+    @include adaptive-value(padding-top, 80, 38, 1);
+    @include adaptive-value(padding-bottom, 80, 30, 1);
     border-bottom: 1px solid $interface-grey-stroke;
   }
 
   &__pre-title {
     display: inline-block;
     @include font(sh-s);
+    @include adaptive-value("font-size", 12, 11, 1);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 8, 1);
   }
 
   &__title {
@@ -914,13 +922,13 @@ body {
     color: $text-black;
     margin: 0;
     @include adaptive-value(font-size, 52, 28, 1);
-    @include adaptive-value(margin-bottom, 64, 32, 1);
+    @include adaptive-value(margin-bottom, 64, 28, 1);
   }
 
   &__content {
     display: flex;
     flex-wrap: wrap;
-    @include adaptive-value(gap, 24, 40, 1);
+    @include adaptive-value(gap, 24, 22, 1);
   }
 
   &__item {
@@ -934,6 +942,7 @@ body {
     margin: 0 auto;
     position: relative;
     cursor: grab;
+    @include adaptive-value("height", 564, 311, 1);
 
     canvas {
       filter: grayscale(1);
@@ -957,7 +966,7 @@ body {
   &__form-labels {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 18, 1);
     @include adaptive-value(margin-bottom, 32, 18, 1);
 
     label {
@@ -974,7 +983,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 16px;
+    @include adaptive-value("gap", 16, 12, 1);
   }
 
   &__form-note {
@@ -1013,7 +1022,7 @@ body {
 
     &--high {
       @include adaptive-value(min-height, 48, 1, 1);
-      @include adaptive-value(margin-bottom, 12, 33, 1);
+      @include adaptive-value(margin-bottom, 12, 8, 1);
     }
   }
 
@@ -1021,10 +1030,12 @@ body {
     @include font(text-xl);
     color: $text-black;
     margin: 0;
+    @include adaptive-value("font-size", 28, 24, 1);
 
     &--gray {
       @include font(text-l);
       color: $text-main;
+      @include adaptive-value("font-size", 24, 20, 1);
     }
   }
 }
@@ -2438,9 +2449,9 @@ body {
   &__selects {
     display: flex;
     align-items: center;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 12, 1);
     max-width: 822px;
-    margin-bottom: 64px;
+    @include adaptive-value("margin-bottom", 64, 38, 1);
   }
 
   &__list {
@@ -2453,7 +2464,7 @@ body {
   }
 
   &__pagination {
-    margin-bottom: 80px;
+    @include adaptive-value("margin-bottom", 80, 20, 1);
   }
 }
 
@@ -2506,7 +2517,7 @@ body {
     margin: 0;
     @include adaptive-value(margin-bottom, 16, 12, 1);
     max-width: 1014px;
-    @include adaptive-value(font-size, 28, 18, 1);
+    @include adaptive-value(font-size, 28, 17, 1);
   }
 
   &__tags {
@@ -2533,6 +2544,7 @@ body {
 .case-body {
   overflow: hidden;
   padding: 32px 0 0 152px;
+  @include adaptive-value("padding-top", 32, 18, 1);
   opacity: 0;
 
   &__text {
@@ -2547,9 +2559,9 @@ body {
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 20, 1);
     list-style-type: decimal;
-    margin-bottom: 48px;
+    @include adaptive-value("margin-bottom", 48, 24, 1);
     padding-left: 40px;
   }
 
@@ -2565,14 +2577,14 @@ body {
     @include font(h3);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 10, 1);
     @include adaptive-value(font-size, 28, 18, 1);
   }
 
   &__sublist {
     display: flex;
     flex-direction: column;
-    @include adaptive-value(gap, 16, 12, 1);
+    @include adaptive-value(gap, 16, 8, 1);
     padding-left: 15px;
   }
 
@@ -2598,7 +2610,7 @@ body {
 }
 
 .case-address {
-  @include adaptive-value(margin-bottom, 40, 20, 1);
+  @include adaptive-value(margin-bottom, 40, 6, 1);
 
   &__subtext {
     display: inline-block;
@@ -2787,7 +2799,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  @include adaptive-value("gap", 8, 4, 1);
+  @include adaptive-value("margin-left", 0, -4, 1);
+  @include adaptive-value("margin-right", 0, -4, 1);
 
   &__button {
     @include font(text-s);
@@ -2795,16 +2810,20 @@ body {
     font-weight: 500;
     border: 1px solid $interface-grey-stroke;
     border-radius: 4px;
-    padding: 8px 12px;
+    @include adaptive-value("padding-top", 8, 6, 1);
+    @include adaptive-value("padding-bottom", 8, 6, 1);
+    @include adaptive-value("padding-left", 12, 10, 1);
+    @include adaptive-value("padding-right", 12, 10, 1);
     transition: 0.2s;
     display: flex;
     align-items: center;
     gap: 2px;
+    @include adaptive-value("font-size", 14, 13, 1);
 
     &::before,
     &::after {
-      width: 16px;
-      height: 16px;
+      @include adaptive-value("width", 16, 14, 1);
+      @include adaptive-value("height", 16, 14, 1);
     }
 
     &:nth-child(1) {
@@ -2840,7 +2859,7 @@ body {
     }
 
     span {
-      min-width: 18px;
+      @include adaptive-value("min-width", 18, 15, 1);
       display: inline-block;
     }
   }
