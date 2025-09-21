@@ -1467,7 +1467,7 @@ body {
     &--large {
       list-style: none;
       padding: 0;
-      margin-left: 69px;
+      @include adaptive-value(margin-left, 69, 50, 1);
       li {
         position: relative;
         counter-increment: item;
@@ -1476,10 +1476,10 @@ body {
       li::before {
         content: counter(item, decimal-leading-zero);
         position: absolute;
-        left: -69px;
+        @include adaptive-value(left, -69, -50, 1);
         top: 8px;
         @include font(text-xl);
-        font-size: 40px;
+        @include adaptive-value(font-size, 40, 30, 1);
         line-height: 90%;
         color: $text-light-grey;
       }
