@@ -40,8 +40,8 @@ body {
 }
 
 .page-splitting {
-  padding-top: 80px;
-  margin-top: -80px;
+  @include adaptive-value(padding-top, 80, 52, 1);
+  @include adaptive-value(margin-top, -80, -52, 1);
   z-index: 1;
   position: relative;
   border-radius: 52px 52px 0 0;
@@ -58,6 +58,7 @@ body {
   flex: 0 0 360px;
   position: sticky;
   top: 20px;
+  display: none;
 }
 
 .sidebar {
@@ -1167,14 +1168,17 @@ body {
 
 .post {
   display: flex;
-  gap: 32px;
   max-width: 823px;
+  @include adaptive-value(gap, 32, 20, 1);
 
   &__img-wrapper {
-    flex: 1 1 294px;
+    flex: 1 0 294px;
     border-radius: 24px;
-    max-width: 294px;
+    width: 294px;
+    height: 294px;
     overflow: hidden;
+    width: 294px;
+    height: 294px
   }
 
   &__img {
@@ -1192,21 +1196,22 @@ body {
     @include font(text-s);
     color: $text-dark-grey;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value(margin-bottom, 16, 12, 1);
   }
 
   &__title {
     @include font(h4);
     color: $text-black;
     margin: 0;
-    margin-bottom: 12px;
+    @include adaptive-value(margin-bottom, 12, 10, 1);
+    @include adaptive-value(font-size, 24, 20, 1);
   }
 
   &__desc {
     @include font(text-m);
     color: $text-main;
     margin: 0;
-    margin-bottom: 24px;
+    @include adaptive-value(margin-bottom, 24, 18, 1);
   }
 }
 
