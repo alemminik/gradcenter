@@ -21,7 +21,7 @@
   transition: 0.2s;
 
   &::after {
-    content: url("/img/icons/arrow-up-right.svg");
+    content: url("./img/icons/arrow-up-right.svg");
     width: 24px;
     height: 24px;
     transition: transform 0.2s;
