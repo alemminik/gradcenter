@@ -245,12 +245,12 @@ address {
 }
 .ui-button--fill::before {
   display: none;
-  content: url(./img/icons/arrow-left-black.svg);
+  content: url(../../../img/icons/arrow-left-black.svg);
   transition: 0.3s;
 }
 .ui-button--fill::after {
   display: none;
-  content: url(./img/icons/arrow-right-black.svg);
+  content: url(../../../img/icons/arrow-right-black.svg);
   transition: 0.3s;
 }
 @media (min-width: 800px) {
@@ -278,12 +278,12 @@ address {
 }
 .ui-button--outline::before {
   display: none;
-  content: url(./img/icons/arrow-left-lemon.svg);
+  content: url(../../../img/icons/arrow-left-lemon.svg);
   transition: 0.3s;
 }
 .ui-button--outline::after {
   display: none;
-  content: url(./img/icons/arrow-right-lemon.svg);
+  content: url(../../../img/icons/arrow-right-lemon.svg);
   transition: 0.3s;
 }
 @media (min-width: 800px) {
@@ -311,12 +311,12 @@ address {
 }
 .ui-button--stroke::before {
   display: none;
-  content: url(./img/icons/arrow-left-black.svg);
+  content: url(../../../img/icons/arrow-left-black.svg);
   transition: 0.3s;
 }
 .ui-button--stroke::after {
   display: none;
-  content: url(./img/icons/arrow-right-black.svg);
+  content: url(../../../img/icons/arrow-right-black.svg);
   transition: 0.3s;
 }
 @media (min-width: 800px) {
@@ -343,12 +343,12 @@ address {
 }
 .ui-button--ghost::before {
   display: none;
-  content: url(./img/icons/arrow-left-lemon.svg);
+  content: url(../../../img/icons/arrow-left-lemon.svg);
   transition: 0.3s;
 }
 .ui-button--ghost::after {
   display: none;
-  content: url(./img/icons/arrow-right-lemon.svg);
+  content: url(../../../img/icons/arrow-right-lemon.svg);
   transition: 0.3s;
 }
 @media (min-width: 800px) {
@@ -404,7 +404,7 @@ address {
   transition: 0.2s;
 }
 .ui-tag::after {
-  content: url("./img/icons/arrow-up-right.svg");
+  content: url("../../../img/icons/arrow-up-right.svg");
   width: 24px;
   height: 24px;
   transition: transform 0.2s;
@@ -1304,7 +1304,7 @@ body.locked {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("./img/decor/grid.svg");
+  background-image: url("../img/decor/grid.svg");
   background-repeat: no-repeat;
   user-select: none;
   pointer-events: none;
@@ -1631,7 +1631,7 @@ body.locked {
   position: relative;
 }
 .ecosystem__grid::before {
-  content: url("./img/decor//logo-transparent.png");
+  content: url("../img/decor//logo-transparent.png");
   position: absolute;
   top: 50%;
   left: 50%;

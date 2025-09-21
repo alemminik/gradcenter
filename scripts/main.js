@@ -400,7 +400,7 @@ document.addEventListener("DOMContentLoaded", () => {
     markerElement.style.width = "72px";
     markerElement.style.height = "90px";
     markerElement.classList.add("ymaps-marker");
-    markerElement.style.backgroundImage = "url(./img/decor/marker.png)";
+    markerElement.style.backgroundImage = "url(../img/decor/marker.png)";
     markerElement.style.backgroundSize = "contain";
     markerElement.style.backgroundRepeat = "no-repeat";
     markerElement.style.pointerEvents = "none";
