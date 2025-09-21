@@ -1656,6 +1656,8 @@ body {
 
   &__title-wrapper {
     display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 32px;
