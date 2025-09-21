@@ -226,6 +226,7 @@
 
 @media (max-width: 1010px) {
   .header {
+    overflow: hidden;
     &__nav {
       position: absolute;
       top: 0;
@@ -411,6 +412,18 @@
 }
 
 @media (max-width: 850px) {
+  .content {
+    max-width: 100%;
+  }
+
+  .news-slider {
+    @include adaptive-value("max-width", 410, 310, 1);
+  }
+
+  .portfolio-link {
+    max-width: 100%;
+  }
+
   .licenses {
     &__list {
       flex-direction: column;
