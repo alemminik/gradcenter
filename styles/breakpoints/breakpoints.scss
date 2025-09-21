@@ -468,12 +468,12 @@
     flex-direction: column;
 
     &__content {
-      max-width: none;
-      flex: auto;
+      max-width: initial;
+      flex: initial;
     }
 
     &__img-wrapper {
-      flex: auto;
+      flex: initial;
       @include adaptive-value(width, 294, 170, 1);
       @include adaptive-value(height, 294, 170, 1); 
     }
