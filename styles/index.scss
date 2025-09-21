@@ -848,11 +848,11 @@ body {
     background-repeat: no-repeat;
     overflow: hidden;
     background-size: cover;
-    @include adaptive-value(padding, 80, 18, 1);
+    @include adaptive-value(padding, 80, 22, 1);
     @include adaptive-value(border-radius, 40, 24, 1);
 
     &--consultation {
-      @include adaptive-value(padding, 40, 18, 1);
+      @include adaptive-value(padding, 40, 22, 1);
     }
 
     &::before {
