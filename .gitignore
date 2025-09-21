@@ -26,5 +26,3 @@ dist-ssr
 
 # Env
 .env.local
-
-styles/index.css
