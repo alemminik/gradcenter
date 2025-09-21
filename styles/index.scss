@@ -2434,9 +2434,9 @@ body {
   &__selects {
     display: flex;
     align-items: center;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 12, 1);
     max-width: 822px;
-    margin-bottom: 64px;
+    @include adaptive-value("margin-bottom", 64, 38, 1);
   }
 
   &__list {
@@ -2449,7 +2449,7 @@ body {
   }
 
   &__pagination {
-    margin-bottom: 80px;
+    @include adaptive-value("margin-bottom", 80, 20, 1);
   }
 }
 
@@ -2502,7 +2502,7 @@ body {
     margin: 0;
     @include adaptive-value(margin-bottom, 16, 12, 1);
     max-width: 1014px;
-    @include adaptive-value(font-size, 28, 18, 1);
+    @include adaptive-value(font-size, 28, 17, 1);
   }
 
   &__tags {
@@ -2529,6 +2529,7 @@ body {
 .case-body {
   overflow: hidden;
   padding: 32px 0 0 152px;
+  @include adaptive-value("padding-top", 32, 18, 1);
   opacity: 0;
 
   &__text {
@@ -2543,9 +2544,9 @@ body {
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    @include adaptive-value("gap", 24, 20, 1);
     list-style-type: decimal;
-    margin-bottom: 48px;
+    @include adaptive-value("margin-bottom", 48, 24, 1);
     padding-left: 40px;
   }
 
@@ -2561,14 +2562,14 @@ body {
     @include font(h3);
     color: $text-black;
     margin: 0;
-    margin-bottom: 16px;
+    @include adaptive-value("margin-bottom", 16, 10, 1);
     @include adaptive-value(font-size, 28, 18, 1);
   }
 
   &__sublist {
     display: flex;
     flex-direction: column;
-    @include adaptive-value(gap, 16, 12, 1);
+    @include adaptive-value(gap, 16, 8, 1);
     padding-left: 15px;
   }
 
@@ -2594,7 +2595,7 @@ body {
 }
 
 .case-address {
-  @include adaptive-value(margin-bottom, 40, 20, 1);
+  @include adaptive-value(margin-bottom, 40, 6, 1);
 
   &__subtext {
     display: inline-block;
@@ -2783,7 +2784,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  flex-wrap: wrap;
+  @include adaptive-value("gap", 8, 4, 1);
+  @include adaptive-value("margin-left", 0, -4, 1);
+  @include adaptive-value("margin-right", 0, -4, 1);
 
   &__button {
     @include font(text-s);
@@ -2791,16 +2795,20 @@ body {
     font-weight: 500;
     border: 1px solid $interface-grey-stroke;
     border-radius: 4px;
-    padding: 8px 12px;
+    @include adaptive-value("padding-top", 8, 6, 1);
+    @include adaptive-value("padding-bottom", 8, 6, 1);
+    @include adaptive-value("padding-left", 12, 10, 1);
+    @include adaptive-value("padding-right", 12, 10, 1);
     transition: 0.2s;
     display: flex;
     align-items: center;
     gap: 2px;
+    @include adaptive-value("font-size", 14, 13, 1);
 
     &::before,
     &::after {
-      width: 16px;
-      height: 16px;
+      @include adaptive-value("width", 16, 14, 1);
+      @include adaptive-value("height", 16, 14, 1);
     }
 
     &:nth-child(1) {
@@ -2836,7 +2844,7 @@ body {
     }
 
     span {
-      min-width: 18px;
+      @include adaptive-value("min-width", 18, 15, 1);
       display: inline-block;
     }
   }
