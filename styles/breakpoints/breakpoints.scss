@@ -434,6 +434,10 @@
   }
 
   .page-splitting {
+    .sidebar-wrapper {
+      order: 1;
+    }
+
     .container {
       flex-direction: column;
       gap: 24px;
@@ -455,7 +459,7 @@
   }
 
   .post {
-    gap: 14px;
+    gap: 12px;
 
     &__img,
     &__img-wrapper {
@@ -603,6 +607,10 @@
       line-height: 120%;
     }
   }
+
+  .posts-wrapper {
+    gap: 42px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -610,17 +618,6 @@
     &__title {
       br {
         display: none;
-      }
-    }
-
-    &__breadcrumbs {
-      gap: 6px;
-      span,
-      a {
-        color: #fff;
-        padding: 3px 9px;
-        background-color: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
       }
     }
 

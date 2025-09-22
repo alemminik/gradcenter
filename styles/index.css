@@ -1902,14 +1902,6 @@ body.locked {
 }
 
 .solve {
-  padding-top: 80px;
-}
-@media (max-width: 1284px) {
-  .solve {
-    padding-top: calc(22px + 58 * (100vw - 320px) / 964);
-  }
-}
-.solve {
   padding-bottom: 80px;
 }
 @media (max-width: 1284px) {
@@ -2569,9 +2561,8 @@ body.locked {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at center, rgba(30, 144, 255, 0.35) 0%, rgba(30, 144, 255, 0.18) 70%, rgba(30, 144, 255, 0) 100%);
+  background: radial-gradient(circle at center, rgba(36, 40, 72, 0.35) 0%, rgba(36, 40, 72, 0.18) 70%, rgba(36, 40, 72, 0) 100%);
   pointer-events: none;
-  z-index: 1;
   opacity: 0;
   transition: 0.2s;
 }
@@ -2582,6 +2573,8 @@ body.locked {
 }
 .service .option__link {
   display: inline-block;
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   padding-top: 32px;
@@ -3717,12 +3710,23 @@ body.locked {
 .recent-posts__control {
   display: flex;
   justify-content: center;
-  gap: 60px;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
 }
 @media (max-width: 1284px) {
   .recent-posts__control {
-    gap: calc(40px + 20 * (100vw - 320px) / 964);
+    gap: calc(14px + 16 * (100vw - 320px) / 964);
   }
+}
+.recent-posts__control span {
+  font-family: "Inter", sans-serif, sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 143%;
+  color: #000;
+  color: #0d0f1b;
+  margin: 0;
 }
 
 .recent-post {
@@ -5991,6 +5995,9 @@ body.locked {
   .centers-contacts {
     display: none;
   }
+  .page-splitting .sidebar-wrapper {
+    order: 1;
+  }
   .page-splitting .container {
     flex-direction: column;
     gap: 24px;
@@ -6007,7 +6014,7 @@ body.locked {
     max-width: 100%;
   }
   .post {
-    gap: 14px;
+    gap: 12px;
   }
   .post__img, .post__img-wrapper {
     width: 100%;
@@ -6117,20 +6124,13 @@ body.locked {
   .direction__desc {
     line-height: 120%;
   }
+  .posts-wrapper {
+    gap: 42px;
+  }
 }
 @media (max-width: 650px) {
   .hero__title br {
     display: none;
-  }
-  .hero__breadcrumbs {
-    gap: 6px;
-  }
-  .hero__breadcrumbs span,
-  .hero__breadcrumbs a {
-    color: #fff;
-    padding: 3px 9px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
   }
   .hero__media-wrapper {
     top: auto;

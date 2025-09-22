@@ -495,7 +495,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   };
 
-  const casesAccordionsLogic = async () => {
+  const accordionsLogic = async () => {
     const accordions = document.querySelectorAll("[data-accordion]");
     if (!accordions.length) return;
 
@@ -592,7 +592,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const main = () => {
     burgerMenuLogic();
-    casesAccordionsLogic();
     animateNumberLogic();
     servicesGridLogic();
     photosStackLogic();
@@ -610,6 +609,7 @@ document.addEventListener("DOMContentLoaded", () => {
     listenersLogic();
     choicesLogic();
     directionsSwiperLogic();
+    accordionsLogic();
   };
 
   main();
