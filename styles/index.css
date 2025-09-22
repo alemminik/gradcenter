@@ -779,14 +779,14 @@ body.locked {
 .hero-wrapper::before {
   content: "";
   position: absolute;
-  left: 10%;
+  left: 7%;
   top: 30%;
   transform: translateY(-50%);
   width: 700px;
   height: 700px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, rgba(30, 144, 255, 0.1) 0%, rgba(30, 144, 255, 0.02) 70%, rgba(30, 144, 255, 0) 100%);
-  filter: blur(40px);
+  background: radial-gradient(circle at center, rgb(18, 21, 37) 0%, rgb(18, 21, 37) 70%, rgba(18, 21, 37, 0) 100%);
+  filter: blur(70px);
   pointer-events: none;
   z-index: 1;
   transition: 0.2s;
